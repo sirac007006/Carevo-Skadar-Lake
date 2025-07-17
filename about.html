@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <title>Carevo Skadar Lake | Boat Tours on Lake Skadar</title>
+    <title>About Us | Carevo Skadar Lake Tours</title>
     <style>
         :root {
             --primary: #2c5f2d;
@@ -178,69 +178,35 @@
             top: 8px;
         }
         
-        .hero {
-            height: 100vh;
-            background-image: url('pocetna.jpg');
+        /* Page Banner */
+        .page-banner {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('pocetna.jpg');
             background-size: cover;
             background-position: center;
-            color: #fff;
+            height: 50vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
         }
         
-        .hero-content {
-            max-width: 800px;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
+        .page-banner h1 {
+            font-size: 3rem;
             margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
-        .hero p {
+        .page-banner p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            max-width: 800px;
+            margin: 0 auto;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
         
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 10px 0;
-        }
-        
-        .btn:hover {
-            background-color: transparent;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid white;
-            margin-left: 15px;
-        }
-        
-        .btn-outline:hover {
-            background-color: white;
-            color: var(--primary);
-        }
-        
-        .featured-tours {
+        /* About Content Styles */
+        .about-section {
             padding: 80px 0;
             background-color: white;
         }
@@ -274,291 +240,292 @@
             max-width: 700px;
             margin: 0 auto;
         }
-        
-        .tours-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .tour-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .tour-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .tour-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .tour-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .tour-card:hover .tour-img img {
-            transform: scale(1.1);
-        }
-        
-        .tour-content {
-            padding: 20px;
-        }
-        
-        .tour-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-        
-        .tour-content p {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-        
-        .tour-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            border-top: 1px solid #eee;
-        }
-        
-        .price {
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-        
-        .tour-footer .btn {
-            padding: 8px 20px;
-            font-size: 14px;
-        }
-        
-        .about {
-            padding: 80px 0;
-            background-color: #f8f9fa;
-        }
-        
-        .about-container {
+
+        .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
+            margin-bottom: 60px;
         }
-        
-        .about-img {
-            overflow: hidden;
 
+        .about-content:nth-child(even) {
+            direction: rtl;
         }
-        
-        .about-img img {
-            width: 100%;
+
+        .about-content:nth-child(even) .content-text {
+            direction: ltr;
         }
-        
-        .about-content h2 {
-            font-size: 2.2rem;
+
+        .content-text h3 {
+            font-size: 1.8rem;
             margin-bottom: 20px;
             color: var(--dark);
             position: relative;
         }
-        
-        .about-content h2::after {
+
+        .content-text h3::after {
             content: '';
             position: absolute;
-            width: 70px;
+            width: 50px;
             height: 3px;
             background-color: var(--primary);
             bottom: -10px;
             left: 0;
         }
-        
-        .about-content p {
+
+        .content-text p {
             margin-bottom: 15px;
             color: #555;
         }
-        
-        .features {
-            margin-top: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+
+        .content-image {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
+
+        .content-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
-        
-        .feature-icon {
-            min-width: 40px;
-            height: 40px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin-right: 15px;
+
+        .content-image:hover img {
+            transform: scale(1.05);
         }
-        
-        .feature-text h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-        
-        .feature-text p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .contact {
+
+        /* Team Section */
+        .team-section {
             padding: 80px 0;
             background-color: #f8f9fa;
         }
 
-        .map-container {
-            height: 450px;
-            background-color: #e9ecef;
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: white;
             border-radius: 8px;
             overflow: hidden;
-            margin-bottom: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-weight: 500;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
         }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
-        
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
+
+        .member-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
             color: var(--dark);
-            position: relative;
         }
-        
-        .contact-info h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary);
-            bottom: -10px;
-            left: 0;
+
+        .member-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
         }
-        
-        .contact-details {
-            margin-bottom: 30px;
-        }
-        
-        .contact-item {
+
+        .member-social {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
+            justify-content: center;
+            gap: 10px;
         }
-        
-        .contact-icon {
-            min-width: 40px;
-            height: 40px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
+
+        .social-link {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            margin-right: 15px;
-            font-size: 16px;
+            width: 35px;
+            height: 35px;
+            background-color: #f8f9fa;
+            border-radius: 50%;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
-        
-        .contact-text h4 {
+
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 60px 0;
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .testimonial {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .testimonial-text::before {
+            content: "";
+            font-size: 4rem;
+            position: absolute;
+            left: -10px;
+            top: -20px;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
             font-size: 1.1rem;
             margin-bottom: 5px;
             color: var(--dark);
         }
-        
-        .contact-text p, .contact-text a {
-            font-size: 1rem;
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s ease;
+
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
         }
         
-        .contact-text a:hover {
-            color: var(--primary);
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('pocetna.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
         }
-        
-        .contact-form form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
-        
-        .form-group {
-            margin-bottom: 0;
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
-        
-        .form-group.full-width {
-            grid-column: span 2;
+
+        .cta-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
         }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background-color: white;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.2);
-        }
-        
-        textarea.form-control {
-            resize: vertical;
-            min-height: 150px;
-        }
-        
-        .btn-submit {
+
+        .btn {
+            display: inline-block;
             background-color: var(--primary);
             color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
             font-weight: 500;
-            width: 100%;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 10px 0;
         }
         
-        .btn-submit:hover {
-            background-color: #234d24;
+        .btn:hover {
+            background-color: transparent;
+            color: white;
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* Footer Styles */
         footer {
             background-color: var(--dark);
             color: white;
@@ -685,42 +652,34 @@
                 z-index: 1000;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .about-container,
-            .contact-container {
+            .about-content {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
             
-            .about-img {
+            .about-content:nth-child(even) {
+                direction: ltr;
+            }
+            
+            .content-image {
                 order: -1;
             }
         }
         
         @media (max-width: 768px) {
-            .tours-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
             
-            .features {
-                grid-template-columns: 1fr;
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
             }
             
-            .contact-form form {
-                grid-template-columns: 1fr;
+            .page-banner h1 {
+                font-size: 2.5rem;
             }
             
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
+            .page-banner p {
                 font-size: 1rem;
             }
             
@@ -733,6 +692,10 @@
         @media (max-width: 576px) {
             .section-title h2 {
                 font-size: 2rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
             }
             
             .footer-container {
@@ -769,183 +732,176 @@
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Experience the Magic of Lake Skadar</h1>
-            <p>Join us on an unforgettable journey through the most beautiful parts of Lake Skadar. Discover natural beauty, rich history, and authentic traditions of this unique ecosystem.</p>
-            <div class="hero-buttons">
-                <a href="tours.html" class="btn">Explore Tours</a>
-                <a href="booknow.html" class="btn btn-outline">Book Now</a>
-            </div>
+    <section class="page-banner">
+        <div class="container">
+            <h1>About Carevo Skadar Lake</h1>
+            <p>Discover our story, our team, and what makes our tours truly special</p>
         </div>
     </section>
 
-    <section class="featured-tours" id="tours">
+    <section class="about-section">
         <div class="container">
             <div class="section-title">
-                <h2>Our Popular Tours</h2>
-                <p>Discover unique experiences we've prepared for you on Lake Skadar</p>
+                <h2>Our Story</h2>
+                <p>Learn more about our journey and commitment to providing unforgettable experiences</p>
             </div>
-            <div class="tours-grid">
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="pocetna.jpg" alt="Sunset on the lake">
-                    </div>
-                    <div class="tour-content">
-                        <h3>Sunset on the Lake</h3>
-                        <p>Experience a magical sunset on the waters of Lake Skadar with traditional food and wine.</p>
-                    </div>
-                    <div class="tour-footer">
-                        <div class="price">From €25</div>
-                        <a href="booknow.html" class="btn">Book</a>
-                    </div>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="https://cdnjs.cloudflare.com/ajax/libs/pexels-images/1/backgrounds/birds-nature.jpg" alt="Birdwatching">
-                    </div>
-                    <div class="tour-content">
-                        <h3>Birdwatching</h3>
-                        <p>Explore the rich ornithological diversity of Lake Skadar with an expert guide.</p>
-                    </div>
-                    <div class="tour-footer">
-                        <div class="price">From €30</div>
-                        <a href="booknow.html" class="btn">Book</a>
-                    </div>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="https://cdnjs.cloudflare.com/ajax/libs/pexels-images/1/backgrounds/fishing-lake.jpg" alt="Fishing trip">
-                    </div>
-                    <div class="tour-content">
-                        <h3>Fishing Trip</h3>
-                        <p>Enjoy traditional fishing on Lake Skadar and prepare your catch on the shore.</p>
-                    </div>
-                    <div class="tour-footer">
-                        <div class="price">From €35</div>
-                        <a href="booknow.html" class="btn">Book</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about" id="about">
-        <div class="container about-container">
+            
             <div class="about-content">
-                <h2>About Carevo Skadar Lake Tours</h2>
-                <p>With over 10 years of experience, Carevo Skadar Lake is a leading tour company for exploring the pristine beauty of Lake Skadar. Our mission is to provide visitors with an authentic experience and introduce them to the rich history, culture, and natural beauty of this unique ecosystem.</p>
-                <p>Our team consists of expert guides born in this region who will share their passion and knowledge about Lake Skadar and its surroundings.</p>
-                <div class="features">
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">
-                            <h4>Quality Tours</h4>
-                            <p>Small groups and personalized approach</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">
-                            <h4>Expert Guides</h4>
-                            <p>Local guides with excellent knowledge</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">
-                            <h4>Safety</h4>
-                            <p>Modern and safe boats</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">
-                            <h4>Authentic Experience</h4>
-                            <p>Experience tradition and culture</p>
-                        </div>
-                    </div>
+                <div class="content-text">
+                    <h3>Our Beginnings</h3>
+                    <p>Carevo Skadar Lake was founded with a simple yet powerful vision: to share the breathtaking beauty and rich heritage of Lake Skadar with visitors from around the world. What began as a small family operation has grown into the region's premier tour provider, while still maintaining our commitment to authentic, personalized experiences.</p>
+                    <p>Our journey started over a decade ago when our founder, a local who grew up on the shores of Lake Skadar, decided to share his deep knowledge and passion for this unique ecosystem with travelers seeking to explore Montenegro's natural treasures.</p>
+                </div>
+                <div class="content-image">
+                    <img src="boat.jpg" alt="Our boat on Lake Skadar">
                 </div>
             </div>
-            <div class="about-img">
-                <img src="boat.jpg" alt="Wooden boat on Lake Skadar">
-            </div>
-        </div>
-    </section>
 
-    <section class="contact" id="book-now">
-        <div class="container">
-            <div class="section-title">
-                <h2>Book Your Tour</h2>
-                <p>Reserve your experience on Lake Skadar with us</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-text">
-                                <h4>Location</h4>
-                                <p>Virpazar, Montenegro</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-text">
-                                <h4>Phone</h4>
-                                <p><a href="tel:+38267601053">+382 67 601 053</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p><a href="mailto:info@carevoskadar.me">info@carevoskadar.me</a></p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="about-content">
+                <div class="content-text">
+                    <h3>Our Mission</h3>
+                    <p>At Carevo Skadar Lake, our mission is to provide visitors with an authentic, immersive experience that goes beyond typical tourism. We strive to create meaningful connections between our guests and the natural environment, local culture, and traditions of the Lake Skadar region.</p>
+                    <p>We are committed to sustainable tourism practices that help preserve this precious ecosystem for future generations while supporting local communities. Every tour we conduct is designed with respect for nature and local traditions at its core.</p>
                 </div>
-                <div class="contact-form">
-                    <form action="mailto:" method="POST">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="Phone">
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control" required>
-                                <option value="" selected disabled>Select Tour</option>
-                                <option value="sunset">Sunset on the Lake</option>
-                                <option value="birds">Birdwatching</option>
-                                <option value="fishing">Fishing Trip</option>
-                                <option value="custom">Custom Tour</option>
-                            </select>
-                        </div>
-                        <div class="form-group full-width">
-                            <textarea class="form-control" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <button type="submit" class="btn-submit">Send Inquiry</button>
-                        </div>
-                    </form>
+                <div class="content-image">
+                    <img src="pocetna.jpg" alt="Lake Skadar landscape">
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div class="content-text">
+                    <h3>The Carevo Difference</h3>
+                    <p>What sets Carevo Skadar Lake apart is our deep local knowledge and genuine passion for this remarkable ecosystem. Our guides aren't just tour operators – they're locals who have grown up on and around the lake, with generations of knowledge about its hidden gems, wildlife, and history.</p>
+                    <p>We believe in small group experiences that allow for personal attention and flexibility. Whether you're interested in birdwatching, photography, fishing, history, or simply relaxing in nature, we tailor each tour to ensure it meets your interests and exceeds your expectations.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://cdnjs.cloudflare.com/ajax/libs/pexels-images/1/backgrounds/birds-nature.jpg" alt="Wildlife on Lake Skadar">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-title">Years of Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-title">Happy Visitors</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-title">Tour Options</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-title">Average Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
         <div class="container">
             <div class="section-title">
-                <h2>Find Us</h2>
-                <p>Visit our location on Lake Skadar</p>
+                <h2>Meet Our Team</h2>
+                <p>Our experienced guides and team members are passionate about Lake Skadar</p>
             </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2953.4856848851205!2d19.09063531765616!3d42.246799625127196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134dd9003bdcb31b%3A0x15b6518bdb355224!2sCarevo%20Skadar%20Lake%20Cruise!5e0!3m2!1sen!2s!4v1752675060367!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/pexels-images/1/people/man-1.jpg" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h4>Nikola Petrović</h4>
+                        <p>Founder & Lead Guide</p>
+                        <p>Born and raised in Virpazar, Nikola has spent his entire life exploring Lake Skadar and knows every hidden corner of this magnificent ecosystem.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/pexels-images/1/people/woman-1.jpg" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h4>Ana Radović</h4>
+                        <p>Wildlife Specialist</p>
+                        <p>With a degree in Biology and a passion for birdwatching, Ana is our expert on the rich wildlife of Lake Skadar and its surrounding areas.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/pexels-images/1/people/man-2.jpg" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h4>Marko Đurović</h4>
+                        <p>Cultural Guide</p>
+                        <p>An expert on local history and traditions, Marko brings the rich cultural heritage of the Lake Skadar region to life for our visitors.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/pexels-images/1/people/woman-2.jpg" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h4>Elena Vuković</h4>
+                        <p>Customer Experience</p>
+                        <p>Elena ensures that every aspect of your experience with us, from booking to completion, exceeds your expectations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Guests Say</h2>
+                <p>Hear from travelers who have experienced our Lake Skadar tours</p>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    <p>Our tour with Carevo Skadar Lake was the highlight of our Montenegro trip. The guide's knowledge was impressive, and the sunset on the lake was truly magical. We learned so much about the local ecosystem and culture. Highly recommend!</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/pexels-images/1/people/woman-3.jpg" alt="Sarah">
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>London, UK</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    <p>As an avid birdwatcher, I was amazed by the diversity of species we spotted during our tour. Our guide was not only knowledgeable but also had an incredible eye for spotting birds that I would have completely missed. A truly unforgettable experience!</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/pexels-images/1/people/man-3.jpg" alt="Thomas">
+                    </div>
+                    <div class="author-info">
+                        <h4>Thomas Müller</h4>
+                        <p>Berlin, Germany</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Lake Skadar?</h2>
+                <p>Join us for an unforgettable journey through one of Europe's most pristine natural environments. Book your tour today and create memories that will last a lifetime.</p>
+                <a href="booknow.html" class="btn">Book Your Tour Now</a>
+                <a href="contact.html" class="btn btn-outline">Contact Us</a>
             </div>
         </div>
     </section>
