@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <title>Carevo Skadar Lake | Boat Tours on Lake Skadar</title>
+    <title>Book Now | Carevo Skadar Lake Tours</title>
     <style>
         :root {
             --primary: #2c5f2d;
@@ -178,69 +178,35 @@
             top: 8px;
         }
         
-        .hero {
-            height: 100vh;
-            background-image: url('pocetna.jpg');
+        /* Page Banner */
+        .page-banner {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../pocetna.jpg');
             background-size: cover;
             background-position: center;
-            color: #fff;
+            height: 40vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
         }
         
-        .hero-content {
-            max-width: 800px;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
+        .page-banner h1 {
+            font-size: 3rem;
             margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
-        .hero p {
+        .page-banner p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            max-width: 800px;
+            margin: 0 auto;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 10px 0;
-        }
-        
-        .btn:hover {
-            background-color: transparent;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid white;
-            margin-left: 15px;
-        }
-        
-        .btn-outline:hover {
-            background-color: white;
-            color: var(--primary);
-        }
-        
-        .featured-tours {
+
+        /* Booking Section Styles */
+        .booking-section {
             padding: 80px 0;
             background-color: white;
         }
@@ -274,11 +240,17 @@
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
+        /* Tour Selection Grid */
+        .tour-selection {
+            margin-bottom: 60px;
+        }
+
         .tours-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
+            margin-bottom: 40px;
         }
         
         .tour-card {
@@ -287,6 +259,8 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
         
         .tour-card:hover {
@@ -297,6 +271,7 @@
         .tour-img {
             height: 200px;
             overflow: hidden;
+            position: relative;
         }
         
         .tour-img img {
@@ -308,6 +283,34 @@
         
         .tour-card:hover .tour-img img {
             transform: scale(1.1);
+        }
+
+        .tour-select {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 25px;
+            height: 25px;
+            border: 2px solid white;
+            border-radius: 50%;
+            background-color: transparent;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .tour-card.selected .tour-select {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .tour-card.selected .tour-select::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 14px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         
         .tour-content {
@@ -339,179 +342,43 @@
             color: var(--primary);
             font-size: 1.2rem;
         }
-        
-        .tour-footer .btn {
-            padding: 8px 20px;
-            font-size: 14px;
-        }
-        
-        .about {
-            padding: 80px 0;
-            background-color: #f8f9fa;
-        }
-        
-        .about-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-img {
-            overflow: hidden;
 
-        }
-        
-        .about-img img {
-            width: 100%;
-        }
-        
-        .about-content h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-            position: relative;
-        }
-        
-        .about-content h2::after {
-            content: '';
+        .tour-badge {
             position: absolute;
-            width: 70px;
-            height: 3px;
-            background-color: var(--primary);
-            bottom: -10px;
+            top: 15px;
             left: 0;
-        }
-        
-        .about-content p {
-            margin-bottom: 15px;
-            color: #555;
-        }
-        
-        .features {
-            margin-top: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .feature-icon {
-            min-width: 40px;
-            height: 40px;
             background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: white;
-            margin-right: 15px;
-        }
-        
-        .feature-text h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-        
-        .feature-text p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .contact {
-            padding: 80px 0;
-            background-color: #f8f9fa;
-        }
-
-        .map-container {
-            height: 450px;
-            background-color: #e9ecef;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
+            padding: 5px 15px;
+            font-size: 0.8rem;
             font-weight: 500;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
         }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+
+        /* Booking Form */
+        .booking-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
-        
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            color: var(--dark);
-            position: relative;
-        }
-        
-        .contact-info h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary);
-            bottom: -10px;
-            left: 0;
-        }
-        
-        .contact-details {
+
+        .form-title {
+            font-size: 1.8rem;
             margin-bottom: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-        
-        .contact-icon {
-            min-width: 40px;
-            height: 40px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin-right: 15px;
-            font-size: 16px;
-        }
-        
-        .contact-text h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
             color: var(--dark);
+            text-align: center;
         }
-        
-        .contact-text p, .contact-text a {
-            font-size: 1rem;
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-text a:hover {
-            color: var(--primary);
-        }
-        
-        .contact-form form {
+
+        .booking-form {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
-        
+
         .form-group {
             margin-bottom: 0;
         }
@@ -535,6 +402,13 @@
             outline: none;
             box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.2);
         }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+        }
         
         textarea.form-control {
             resize: vertical;
@@ -545,20 +419,173 @@
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 15px 25px;
             font-size: 16px;
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
             font-weight: 500;
             width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .btn-submit:hover {
             background-color: #234d24;
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .step-description {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            background-color: #f8f9fa;
+            padding: 20px;
+            cursor: pointer;
+            position: relative;
+            font-weight: 600;
+            color: var(--dark);
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 60px 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../pocetna.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 10px 0;
         }
         
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer Styles */
         footer {
             background-color: var(--dark);
             color: white;
@@ -685,17 +712,16 @@
                 z-index: 1000;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
+            .booking-form-container {
+                padding: 30px 20px;
             }
             
-            .about-container,
-            .contact-container {
+            .steps-container {
                 grid-template-columns: 1fr;
             }
             
-            .about-img {
-                order: -1;
+            .page-banner h1 {
+                font-size: 2.5rem;
             }
         }
         
@@ -704,11 +730,7 @@
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
             
-            .features {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-form form {
+            .booking-form {
                 grid-template-columns: 1fr;
             }
             
@@ -716,11 +738,11 @@
                 grid-column: span 1;
             }
             
-            .hero h1 {
+            .page-banner h1 {
                 font-size: 2rem;
             }
             
-            .hero p {
+            .page-banner p {
                 font-size: 1rem;
             }
             
@@ -745,21 +767,21 @@
     <header id="header">
         <div class="container nav-container">
             <div class="logo">
-                <a href="index.html" style="text-decoration: none;">
-                <img src="logo.png" class="logo-placeholder"></a>
+                <a href="../index.html" style="text-decoration: none;">
+                <img src="../logo.png" class="logo-placeholder"></a>
             </div>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="uk/tours.html">Tours</a></li>
-                    <li><a href="uk/about.html">About</a></li>
-                    <li><a href="uk/contact.html">Contact</a></li>
-                    <li><a href="uk/booknow.html">Book Now</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="tours.html">Tours</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booknow.html">Book Now</a></li>
                     <li class="language-selector" style="display: flex; align-items: center;">
-                        <a href="index.html"><img src="uk.jpg" style="width: 40px;"></a>
-                        <a href="mon/index.html"><img src="mon.jpg" style="width: 40px;"></a>
-                        <a href="rus/index.html"><img src="rus.jpg" style="width: 40px;"></a>
-                        <a href="fr/index.html"><img src="france.jpg" style="width: 40px;"></a>
+                        <a href="../index.html"><img src="../uk.jpg" style="width: 40px;"></a>
+                        <a href="../mon/index.html"><img src="../mon.jpg" style="width: 40px;"></a>
+                        <a href="../rus/index.html"><img src="../rus.jpg" style="width: 40px;"></a>
+                        <a href="../fr/index.html"><img src="../france.jpg" style="width: 40px;"></a>
                     </li>
                 </ul>
                 <div class="hamburger">
@@ -771,183 +793,160 @@
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Experience the Magic of Lake Skadar</h1>
-            <p>Join us on an unforgettable journey through the most beautiful parts of Lake Skadar. Discover natural beauty, rich history, and authentic traditions of this unique ecosystem.</p>
-            <div class="hero-buttons">
-                <a href="uk/tours.html" class="btn">Explore Tours</a>
-                <a href="uk/booknow.html" class="btn btn-outline">Book Now</a>
+    <section class="page-banner">
+        <div class="container">
+            <h1>Book Your Lake Skadar Experience</h1>
+            <p>Reserve your tour and create unforgettable memories</p>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <div class="container">
+            
+            <div class="booking-form-container">
+                <h3 class="form-title">Complete Your Booking</h3>
+                <form class="booking-form" action="mailto:" method="POST">
+                    <div class="form-group">
+                        <label class="form-label">First Name*</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name*</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email*</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number*</label>
+                        <input type="tel" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Preferred Date*</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Number of People*</label>
+                        <select class="form-control" required>
+                            <option value="" selected disabled>Select</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5">5 People</option>
+                            <option value="6+">6+ People</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Tour</label>
+                        <select class="form-control" required>
+                            <option value="" selected disabled>Select</option>
+                            <option value="Grmožur Island - Montenegro's Alcatraz">Grmožur Island - Montenegro's Alcatraz</option>
+                            <option value="Skadar Lake Panoramic Experience">Skadar Lake Panoramic Experience</option>
+                            <option value="Monastery Vranjina">Monastery Vranjina</option>
+                            <option value="Poseljani Village">Poseljani Village</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Special Requests or Questions</label>
+                        <textarea class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn-submit">Book Now</button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
 
-    <section class="featured-tours" id="tours">
+    <section class="how-it-works">
         <div class="container">
             <div class="section-title">
-                <h2>Our Popular Tours</h2>
-                <p>Discover unique experiences we've prepared for you on Lake Skadar</p>
+                <h2>How It Works</h2>
+                <p>Simple steps to book your Lake Skadar experience</p>
             </div>
-            <div class="tours-grid">
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="grmozur.jpg" alt="Grmožur Island - Montenegro's Alcatraz">
-                    </div>
-                    <div class="tour-content">
-                        <h3>Grmožur Island - Montenegro's Alcatraz</h3>
-                        <p>Grmožur is a small stone island on Skadar Lake, once known as Montenegro's Alcatraz – a prison during King Nikola's reign.</p>
-                    </div>
-                    <div class="tour-footer">
-                        <div class="price">From €5</div>
-                        <a href="uk/booknow.html" class="btn">Book</a>
-                    </div>
+            
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Choose Your Tour</h3>
+                    <p class="step-description">Browse our selection of tours and choose the experience that interests you most.</p>
                 </div>
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="panorama.jpg" alt="Skadar Lake Panoramic Experience">
-                    </div>
-                    <div class="tour-content">
-                        <h3>Skadar Lake Panoramic Experience</h3>
-                        <p>This tour includes entrance to the bird reserve, shallow canals covered in lotus flowers, stunning landscapes, and an optional swimming break in the middle of the lake.</p>
-                    </div>
-                    <div class="tour-footer">
-                        <div class="price">From €5</div>
-                        <a href="uk/booknow.html" class="btn">Book</a>
-                    </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Complete Booking Form</h3>
+                    <p class="step-description">Fill out the booking form with your contact details and preferred date.</p>
                 </div>
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="vranjina.jpg" alt="Monastery Vranjina">
-                    </div>
-                    <div class="tour-content">
-                        <h3>Monastery Vranjina</h3>
-                        <p>Starting from Virpazar, we navigate through narrow channels covered with water lilies, reaching one of the most beautiful monasteries – Vranjina.</p>
-                    </div>
-                    <div class="tour-footer">
-                        <div class="price">From €5</div>
-                        <a href="uk/booknow.html" class="btn">Book</a>
-                    </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Confirmation</h3>
+                    <p class="step-description">Receive booking confirmation via email with all the details of your tour.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Enjoy Your Tour</h3>
+                    <p class="step-description">Meet us at the agreed location and enjoy your Lake Skadar adventure!</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="container about-container">
-            <div class="about-content">
-                <h2>About Carevo Skadar Lake Tours</h2>
-                <p>With over 10 years of experience, Carevo Skadar Lake is a leading tour company for exploring the pristine beauty of Lake Skadar. Our mission is to provide visitors with an authentic experience and introduce them to the rich history, culture, and natural beauty of this unique ecosystem.</p>
-                <p>Our team consists of expert guides born in this region who will share their passion and knowledge about Lake Skadar and its surroundings.</p>
-                <div class="features">
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">
-                            <h4>Quality Tours</h4>
-                            <p>Small groups and personalized approach</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">
-                            <h4>Expert Guides</h4>
-                            <p>Local guides with excellent knowledge</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">
-                            <h4>Safety</h4>
-                            <p>Modern and safe boats</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">
-                            <h4>Authentic Experience</h4>
-                            <p>Experience tradition and culture</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="about-img">
-                <img src="boat.jpg" alt="Wooden boat on Lake Skadar">
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="book-now">
+    <section class="faq-section">
         <div class="container">
             <div class="section-title">
-                <h2>Book Your Tour</h2>
-                <p>Reserve your experience on Lake Skadar with us</p>
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our tours and booking process</p>
             </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-text">
-                                <h4>Location</h4>
-                                <p>Virpazar, Montenegro</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-text">
-                                <h4>Phone</h4>
-                                <p><a href="tel:+38267601053">+382 67 601 053</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p><a href="mailto:info@carevoskadar.me">info@carevoskadar.me</a></p>
-                            </div>
-                        </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What should I bring on the tour?</div>
+                    <div class="faq-answer">
+                        <p>We recommend bringing sunscreen, a hat, sunglasses, a light jacket (even in summer as it can get cool on the water), comfortable clothes, and a camera. For fishing tours, all equipment is provided. Drinking water is provided on all tours.</p>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form action="mailto:" method="POST">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="Phone">
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control" required>
-                                <option value="" selected disabled>Select Tour</option>
-                                <option value="sunset">Sunset on the Lake</option>
-                                <option value="birds">Birdwatching</option>
-                                <option value="fishing">Fishing Trip</option>
-                                <option value="custom">Custom Tour</option>
-                            </select>
-                        </div>
-                        <div class="form-group full-width">
-                            <textarea class="form-control" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <button type="submit" class="btn-submit">Send Inquiry</button>
-                        </div>
-                    </form>
+                <div class="faq-item">
+                    <div class="faq-question">How far in advance should I book?</div>
+                    <div class="faq-answer">
+                        <p>We recommend booking at least 2-3 days in advance during the regular season and 1-2 weeks in advance during the peak summer months (July-August) to ensure availability. For large groups, earlier booking is advised.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What is your cancellation policy?</div>
+                    <div class="faq-answer">
+                        <p>You can cancel free of charge up to 24 hours before your tour. Cancellations less than 24 hours before the start time may be subject to a cancellation fee. In case of bad weather conditions, we will offer you an alternative date or a full refund.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Are the tours suitable for children?</div>
+                    <div class="faq-answer">
+                        <p>Yes, most of our tours are family-friendly and suitable for children of all ages. We provide life jackets for all passengers, including appropriate sizes for children. The Sunset Tour and Birdwatching Tour are particularly enjoyed by families.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer private tours?</div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer private tours for individuals, families, and groups who prefer a more personalized experience. Private tours can be customized to your interests and schedule. Please contact us directly for pricing and availability.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What payment methods do you accept?</div>
+                    <div class="faq-answer">
+                        <p>We accept cash (EUR), credit/debit cards (Visa, Mastercard), and PayPal. For tour bookings, we require a 20% deposit to secure your reservation, with the remaining balance due on the day of the tour.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="cta-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Find Us</h2>
-                <p>Visit our location on Lake Skadar</p>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2953.4856848851205!2d19.09063531765616!3d42.246799625127196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134dd9003bdcb31b%3A0x15b6518bdb355224!2sCarevo%20Skadar%20Lake%20Cruise!5e0!3m2!1sen!2s!4v1752675060367!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="cta-content">
+                <h2>Have Questions?</h2>
+                <p>If you need any additional information or have specific requirements, don't hesitate to contact us directly.</p>
+                <a href="contact.html" class="btn">Contact Us</a>
             </div>
         </div>
     </section>
@@ -962,27 +961,27 @@
                         <a href="tel:+38267601053" class="social-icon"><i class="fa fa-phone"></i></a>
                         <a href="https://www.instagram.com/carevo_skadar_lake_cruise/" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
                         <a href="mailto:" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
-                        <a href="" class="social-icon"><img src="gyg.jpg" style="max-width: 50%;"></a>
+                        <a href="" class="social-icon"><img src="../gyg.jpg" style="max-width: 50%;"></a>
                         <a href="https://g.co/kgs/xnQtTcg" class="social-icon"><i class="fa-brands fa-google"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="uk/about.html">Our Tours</a></li>
-                        <li><a href="uk/about.html">About Us</a></li>
-                        <li><a href="uk/contact.html">Contact</a></li>
-                        <li><a href="uk/booknow.html">Book Now</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="tours.html">Our Tours</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="booknow.html">Book Now</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Our Tours</h3>
                     <ul>
-                        <li><a href="uk/tours.html#grmozur">Grmožur Island</a></li>
-                        <li><a href="uk/tours.html#panorama">Skadar Lake Panoramic Experience</a></li>
-                        <li><a href="uk/tours.html#vranjina">Monastery Vranjina</a></li>
-                        <li><a href="uk/tours.html#poseljani">Poseljani Village</a></li>
+                        <li><a href="tours.html#grmozur">Grmožur Island</a></li>
+                        <li><a href="tours.html#panorama">Skadar Lake Panoramic Experience</a></li>
+                        <li><a href="tours.html#vranjina">Monastery Vranjina</a></li>
+                        <li><a href="tours.html#poseljani">Poseljani Village</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1029,6 +1028,32 @@
                     });
                 });
             }
+
+            // Tour card selection
+            const tourCards = document.querySelectorAll('.tour-card');
+            tourCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Toggle selected class
+                    this.classList.toggle('selected');
+                });
+            });
+
+            // FAQ accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', function() {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
 
             // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <title>Carevo Skadar Lake | Boat Tours on Lake Skadar</title>
+    <title>Contact Us | Carevo Skadar Lake Tours</title>
     <style>
         :root {
             --primary: #2c5f2d;
@@ -178,69 +178,35 @@
             top: 8px;
         }
         
-        .hero {
-            height: 100vh;
-            background-image: url('pocetna.jpg');
+        /* Page Banner */
+        .page-banner {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../pocetna.jpg');
             background-size: cover;
             background-position: center;
-            color: #fff;
+            height: 40vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
         }
         
-        .hero-content {
-            max-width: 800px;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
+        .page-banner h1 {
+            font-size: 3rem;
             margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
-        .hero p {
+        .page-banner p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            max-width: 800px;
+            margin: 0 auto;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 10px 0;
-        }
-        
-        .btn:hover {
-            background-color: transparent;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid white;
-            margin-left: 15px;
-        }
-        
-        .btn-outline:hover {
-            background-color: white;
-            color: var(--primary);
-        }
-        
-        .featured-tours {
+
+        /* Contact Section Styles */
+        .contact-section {
             padding: 80px 0;
             background-color: white;
         }
@@ -274,252 +240,139 @@
             max-width: 700px;
             margin: 0 auto;
         }
-        
-        .tours-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .tour-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .tour-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .tour-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .tour-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .tour-card:hover .tour-img img {
-            transform: scale(1.1);
-        }
-        
-        .tour-content {
-            padding: 20px;
-        }
-        
-        .tour-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-        
-        .tour-content p {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-        
-        .tour-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            border-top: 1px solid #eee;
-        }
-        
-        .price {
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-        
-        .tour-footer .btn {
-            padding: 8px 20px;
-            font-size: 14px;
-        }
-        
-        .about {
-            padding: 80px 0;
-            background-color: #f8f9fa;
-        }
-        
-        .about-container {
+
+        /* Contact Info and Form */
+        .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            align-items: center;
+            margin-bottom: 60px;
         }
-        
-        .about-img {
-            overflow: hidden;
 
-        }
-        
-        .about-img img {
-            width: 100%;
-        }
-        
-        .about-content h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
             color: var(--dark);
             position: relative;
         }
-        
-        .about-content h2::after {
+
+        .contact-info h3::after {
             content: '';
             position: absolute;
-            width: 70px;
+            width: 50px;
             height: 3px;
             background-color: var(--primary);
             bottom: -10px;
             left: 0;
         }
-        
-        .about-content p {
-            margin-bottom: 15px;
-            color: #555;
-        }
-        
-        .features {
-            margin-top: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .feature-icon {
-            min-width: 40px;
-            height: 40px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin-right: 15px;
-        }
-        
-        .feature-text h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-        
-        .feature-text p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .contact {
-            padding: 80px 0;
-            background-color: #f8f9fa;
+
+        .contact-details {
+            margin-bottom: 40px;
         }
 
-        .map-container {
-            height: 450px;
-            background-color: #e9ecef;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-weight: 500;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-        
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            color: var(--dark);
-            position: relative;
-        }
-        
-        .contact-info h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary);
-            bottom: -10px;
-            left: 0;
-        }
-        
-        .contact-details {
-            margin-bottom: 30px;
-        }
-        
         .contact-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
-        
+
         .contact-icon {
-            min-width: 40px;
-            height: 40px;
+            min-width: 50px;
+            height: 50px;
             background-color: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            margin-right: 15px;
-            font-size: 16px;
+            margin-right: 20px;
+            font-size: 20px;
+            transition: all 0.3s ease;
         }
-        
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(44, 95, 45, 0.3);
+        }
+
         .contact-text h4 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 5px;
             color: var(--dark);
         }
-        
+
         .contact-text p, .contact-text a {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #666;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .contact-text a:hover {
             color: var(--primary);
         }
-        
-        .contact-form form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+
+        /* Business Hours */
+        .business-hours {
+            margin-top: 40px;
         }
-        
+
+        .business-hours h4 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .time {
+            color: #666;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+            text-align: center;
+        }
+
         .form-group {
-            margin-bottom: 0;
+            margin-bottom: 20px;
         }
-        
-        .form-group.full-width {
-            grid-column: span 2;
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
         }
-        
+
         .form-control {
             width: 100%;
             padding: 12px 15px;
@@ -529,36 +382,111 @@
             background-color: white;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .form-control:focus {
             border-color: var(--primary);
             outline: none;
             box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.2);
         }
-        
+
         textarea.form-control {
             resize: vertical;
             min-height: 150px;
         }
-        
+
         .btn-submit {
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 14px 25px;
             font-size: 16px;
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
             font-weight: 500;
             width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        
+
         .btn-submit:hover {
             background-color: #234d24;
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
+        /* Map Section */
+        .map-section {
+            padding: 0 0 80px;
+        }
+
+        .map-container {
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Connect Section */
+        .connect-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .social-connect {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .social-text {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .social-icons-large {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .social-icon-large {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            border-radius: 50%;
+            color: var(--primary);
+            font-size: 28px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon-large:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer Styles */
         footer {
             background-color: var(--dark);
             color: white;
@@ -685,48 +613,59 @@
                 z-index: 1000;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .about-container,
             .contact-container {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
             
-            .about-img {
-                order: -1;
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .social-icons-large {
+                gap: 20px;
+            }
+            
+            .social-icon-large {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
             }
         }
         
         @media (max-width: 768px) {
-            .tours-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .page-banner h1 {
+                font-size: 2.2rem;
             }
             
-            .features {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-form form {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
+            .page-banner p {
                 font-size: 1rem;
             }
             
-            .btn {
-                padding: 10px 20px;
-                font-size: 14px;
+            .contact-details {
+                margin-bottom: 30px;
+            }
+            
+            .contact-item {
+                margin-bottom: 20px;
+            }
+            
+            .contact-icon {
+                min-width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .contact-text h4 {
+                font-size: 1.1rem;
+            }
+            
+            .contact-text p, .contact-text a {
+                font-size: 1rem;
+            }
+            
+            .map-container {
+                height: 400px;
             }
         }
         
@@ -735,8 +674,27 @@
                 font-size: 2rem;
             }
             
+            .contact-info h3,
+            .contact-form h3 {
+                font-size: 1.6rem;
+            }
+            
+            .social-icons-large {
+                gap: 15px;
+            }
+            
+            .social-icon-large {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
             .footer-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .map-container {
+                height: 300px;
             }
         }
     </style>
@@ -745,21 +703,21 @@
     <header id="header">
         <div class="container nav-container">
             <div class="logo">
-                <a href="index.html" style="text-decoration: none;">
-                <img src="logo.png" class="logo-placeholder"></a>
+                <a href="../index.html" style="text-decoration: none;">
+                <img src="../logo.png" class="logo-placeholder"></a>
             </div>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="uk/tours.html">Tours</a></li>
-                    <li><a href="uk/about.html">About</a></li>
-                    <li><a href="uk/contact.html">Contact</a></li>
-                    <li><a href="uk/booknow.html">Book Now</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="tours.html">Tours</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booknow.html">Book Now</a></li>
                     <li class="language-selector" style="display: flex; align-items: center;">
-                        <a href="index.html"><img src="uk.jpg" style="width: 40px;"></a>
-                        <a href="mon/index.html"><img src="mon.jpg" style="width: 40px;"></a>
-                        <a href="rus/index.html"><img src="rus.jpg" style="width: 40px;"></a>
-                        <a href="fr/index.html"><img src="france.jpg" style="width: 40px;"></a>
+                        <a href="../index.html"><img src="../uk.jpg" style="width: 40px;"></a>
+                        <a href="../mon/index.html"><img src="../mon.jpg" style="width: 40px;"></a>
+                        <a href="../rus/index.html"><img src="../rus.jpg" style="width: 40px;"></a>
+                        <a href="../fr/index.html"><img src="../france.jpg" style="width: 40px;"></a>
                     </li>
                 </ul>
                 <div class="hamburger">
@@ -771,168 +729,98 @@
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Experience the Magic of Lake Skadar</h1>
-            <p>Join us on an unforgettable journey through the most beautiful parts of Lake Skadar. Discover natural beauty, rich history, and authentic traditions of this unique ecosystem.</p>
-            <div class="hero-buttons">
-                <a href="uk/tours.html" class="btn">Explore Tours</a>
-                <a href="uk/booknow.html" class="btn btn-outline">Book Now</a>
-            </div>
+    <section class="page-banner">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We're here to help with any questions you might have</p>
         </div>
     </section>
 
-    <section class="featured-tours" id="tours">
+    <section class="contact-section">
         <div class="container">
             <div class="section-title">
-                <h2>Our Popular Tours</h2>
-                <p>Discover unique experiences we've prepared for you on Lake Skadar</p>
+                <h2>Get in Touch</h2>
+                <p>Reach out to our team for information, reservations, or custom tour requests</p>
             </div>
-            <div class="tours-grid">
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="grmozur.jpg" alt="Grmožur Island - Montenegro's Alcatraz">
-                    </div>
-                    <div class="tour-content">
-                        <h3>Grmožur Island - Montenegro's Alcatraz</h3>
-                        <p>Grmožur is a small stone island on Skadar Lake, once known as Montenegro's Alcatraz – a prison during King Nikola's reign.</p>
-                    </div>
-                    <div class="tour-footer">
-                        <div class="price">From €5</div>
-                        <a href="uk/booknow.html" class="btn">Book</a>
-                    </div>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="panorama.jpg" alt="Skadar Lake Panoramic Experience">
-                    </div>
-                    <div class="tour-content">
-                        <h3>Skadar Lake Panoramic Experience</h3>
-                        <p>This tour includes entrance to the bird reserve, shallow canals covered in lotus flowers, stunning landscapes, and an optional swimming break in the middle of the lake.</p>
-                    </div>
-                    <div class="tour-footer">
-                        <div class="price">From €5</div>
-                        <a href="uk/booknow.html" class="btn">Book</a>
-                    </div>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="vranjina.jpg" alt="Monastery Vranjina">
-                    </div>
-                    <div class="tour-content">
-                        <h3>Monastery Vranjina</h3>
-                        <p>Starting from Virpazar, we navigate through narrow channels covered with water lilies, reaching one of the most beautiful monasteries – Vranjina.</p>
-                    </div>
-                    <div class="tour-footer">
-                        <div class="price">From €5</div>
-                        <a href="uk/booknow.html" class="btn">Book</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about" id="about">
-        <div class="container about-container">
-            <div class="about-content">
-                <h2>About Carevo Skadar Lake Tours</h2>
-                <p>With over 10 years of experience, Carevo Skadar Lake is a leading tour company for exploring the pristine beauty of Lake Skadar. Our mission is to provide visitors with an authentic experience and introduce them to the rich history, culture, and natural beauty of this unique ecosystem.</p>
-                <p>Our team consists of expert guides born in this region who will share their passion and knowledge about Lake Skadar and its surroundings.</p>
-                <div class="features">
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">
-                            <h4>Quality Tours</h4>
-                            <p>Small groups and personalized approach</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">
-                            <h4>Expert Guides</h4>
-                            <p>Local guides with excellent knowledge</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">
-                            <h4>Safety</h4>
-                            <p>Modern and safe boats</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">
-                            <h4>Authentic Experience</h4>
-                            <p>Experience tradition and culture</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="about-img">
-                <img src="boat.jpg" alt="Wooden boat on Lake Skadar">
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="book-now">
-        <div class="container">
-            <div class="section-title">
-                <h2>Book Your Tour</h2>
-                <p>Reserve your experience on Lake Skadar with us</p>
-            </div>
+            
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Contact Information</h3>
                     <div class="contact-details">
                         <div class="contact-item">
-                            <div class="contact-icon">📍</div>
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
                             <div class="contact-text">
-                                <h4>Location</h4>
-                                <p>Virpazar, Montenegro</p>
+                                <h4>Our Location</h4>
+                                <p>Virpazar, Lake Skadar National Park, Montenegro</p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon">📞</div>
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
                             <div class="contact-text">
-                                <h4>Phone</h4>
+                                <h4>Phone Number</h4>
                                 <p><a href="tel:+38267601053">+382 67 601 053</a></p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
                             <div class="contact-text">
-                                <h4>Email</h4>
+                                <h4>Email Address</h4>
                                 <p><a href="mailto:info@carevoskadar.me">info@carevoskadar.me</a></p>
                             </div>
                         </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Website</h4>
+                                <p><a href="https://carevoskadar.me">www.carevoskadar.me</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-hours">
+                        <h4>Business Hours</h4>
+                        <ul class="hours-list">
+                            <li>
+                                <span class="day">Monday - Sunday</span>
+                                <span class="time">8:00 AM - 10:00 PM</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+                
                 <div class="contact-form">
+                    <h3>Send Us a Message</h3>
                     <form action="mailto:" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Name" required>
+                            <label class="form-label">Your Name*</label>
+                            <input type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email" required>
+                            <label class="form-label">Email Address*</label>
+                            <input type="email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="Phone">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control">
                         </div>
                         <div class="form-group">
-                            <select class="form-control" required>
-                                <option value="" selected disabled>Select Tour</option>
-                                <option value="sunset">Sunset on the Lake</option>
-                                <option value="birds">Birdwatching</option>
-                                <option value="fishing">Fishing Trip</option>
-                                <option value="custom">Custom Tour</option>
-                            </select>
+                            <label class="form-label">Subject*</label>
+                            <input type="text" class="form-control" required>
                         </div>
-                        <div class="form-group full-width">
-                            <textarea class="form-control" placeholder="Your Message" rows="5" required></textarea>
+                        <div class="form-group">
+                            <label class="form-label">Your Message*</label>
+                            <textarea class="form-control" rows="5" required></textarea>
                         </div>
-                        <div class="form-group full-width">
-                            <button type="submit" class="btn-submit">Send Inquiry</button>
+                        <div class="form-group">
+                            <button type="submit" class="btn-submit">Send Message</button>
                         </div>
                     </form>
                 </div>
@@ -940,14 +828,26 @@
         </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="map-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Find Us</h2>
-                <p>Visit our location on Lake Skadar</p>
-            </div>
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2953.4856848851205!2d19.09063531765616!3d42.246799625127196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134dd9003bdcb31b%3A0x15b6518bdb355224!2sCarevo%20Skadar%20Lake%20Cruise!5e0!3m2!1sen!2s!4v1752675060367!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="connect-section">
+        <div class="container">
+            <div class="social-connect">
+                <h2 class="social-title">Connect With Us</h2>
+                <p class="social-text">Follow us on social media for the latest updates, beautiful photos of Lake Skadar, and special offers for our tours</p>
+                
+                <div class="social-icons-large">
+                    <a href="tel:+38267601053" class="social-icon-large"><i class="fa fa-phone"></i></a>
+                    <a href="https://www.instagram.com/carevo_skadar_lake_cruise/" class="social-icon-large"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="mailto:" class="social-icon-large"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://g.co/kgs/xnQtTcg" class="social-icon-large"><i class="fa-brands fa-google"></i></a>
+                </div>
             </div>
         </div>
     </section>
@@ -962,27 +862,27 @@
                         <a href="tel:+38267601053" class="social-icon"><i class="fa fa-phone"></i></a>
                         <a href="https://www.instagram.com/carevo_skadar_lake_cruise/" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
                         <a href="mailto:" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
-                        <a href="" class="social-icon"><img src="gyg.jpg" style="max-width: 50%;"></a>
+                        <a href="" class="social-icon"><img src="../gyg.jpg" style="max-width: 50%;"></a>
                         <a href="https://g.co/kgs/xnQtTcg" class="social-icon"><i class="fa-brands fa-google"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="uk/about.html">Our Tours</a></li>
-                        <li><a href="uk/about.html">About Us</a></li>
-                        <li><a href="uk/contact.html">Contact</a></li>
-                        <li><a href="uk/booknow.html">Book Now</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="tours.html">Our Tours</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="booknow.html">Book Now</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Our Tours</h3>
                     <ul>
-                        <li><a href="uk/tours.html#grmozur">Grmožur Island</a></li>
-                        <li><a href="uk/tours.html#panorama">Skadar Lake Panoramic Experience</a></li>
-                        <li><a href="uk/tours.html#vranjina">Monastery Vranjina</a></li>
-                        <li><a href="uk/tours.html#poseljani">Poseljani Village</a></li>
+                        <li><a href="tours.html#grmozur">Grmožur Island</a></li>
+                        <li><a href="tours.html#panorama">Skadar Lake Panoramic Experience</a></li>
+                        <li><a href="tours.html#vranjina">Monastery Vranjina</a></li>
+                        <li><a href="tours.html#poseljani">Poseljani Village</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">

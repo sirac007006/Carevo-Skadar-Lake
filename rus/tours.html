@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <title>Наши туры | Carevo Skadar Lake</title>
+    <style>
+        :root {
+            --primary: #2c5f2d;
+            --secondary: #97bc62;
+            --accent: #1e81b0;
+            --light: #f9f9f9;
+            --dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-placeholder {
+            width: 70px;
+            height: 70px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark);
+            font-size: 18px;
+            border-radius: 50%;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .language-selector {
+            display: flex;
+            margin-left: 30px;
+        }
+        
+        .language-selector a {
+            margin-left: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .language-selector a:hover {
+            color: var(--primary);
+        }
+        
+        .language-selector a.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .hamburger span {
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background-color: var(--dark);
+            border-radius: 3px;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger span:first-child {
+            top: 0;
+        }
+        
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+        
+        .hamburger span:last-child {
+            top: 16px;
+        }
+        
+        .hamburger.active span:first-child {
+            transform: rotate(45deg);
+            top: 8px;
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:last-child {
+            transform: rotate(-45deg);
+            top: 8px;
+        }
+        
+        /* Page Banner */
+        .page-banner {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../pocetna.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .page-banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .page-banner p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Tours Section */
+        .tours-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Tour Categories */
+        .tour-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background-color: #f8f9fa;
+            color: var(--dark);
+            border: none;
+            padding: 10px 25px;
+            margin: 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(44, 95, 45, 0.2);
+        }
+
+        /* Tour Cards */
+        .tour-list {
+            margin-top: 40px;
+        }
+
+        .tour-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tour-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .tour-item:nth-child(even) .tour-details {
+            direction: ltr;
+        }
+
+        .tour-image {
+            height: 100%;
+            min-height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tour-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .tour-item:hover .tour-image img {
+            transform: scale(1.05);
+        }
+
+        .tour-badge {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            z-index: 10;
+        }
+
+        .tour-details {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tour-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .tour-description {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .tour-features {
+            margin-bottom: 30px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .feature-icon {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .tour-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            color: #777;
+            font-size: 0.95rem;
+        }
+
+        .meta-icon {
+            color: var(--primary);
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        .tour-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .price-suffix {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #777;
+        }
+
+        .tour-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Extra Tour Options */
+        .extra-options {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .option-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .option-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .option-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .option-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .option-card:hover .option-img img {
+            transform: scale(1.1);
+        }
+
+        .option-content {
+            padding: 25px;
+        }
+
+        .option-title {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .option-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .option-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .option-price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../pocetna.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-light {
+            background-color: white;
+            color: var(--dark);
+            border-color: white;
+        }
+
+        .btn-light:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            background-color: #f8f9fa;
+            padding: 20px;
+            cursor: pointer;
+            position: relative;
+            font-weight: 600;
+            color: var(--dark);
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 0;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .footer-column p {
+            color: #bbb;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 991px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 100px;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .language-selector {
+                margin: 15px 0;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .hamburger {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .tour-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .tour-item:nth-child(even) {
+                direction: ltr;
+            }
+            
+            .tour-image {
+                min-height: 300px;
+            }
+            
+            .page-banner h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-banner h1 {
+                font-size: 2.2rem;
+            }
+            
+            .page-banner p {
+                font-size: 1rem;
+            }
+            
+            .tour-details {
+                padding: 30px;
+            }
+            
+            .tour-title {
+                font-size: 1.7rem;
+            }
+            
+            .tour-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .tour-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+                margin: 5px 0;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .tour-details {
+                padding: 25px;
+            }
+            
+            .tour-title {
+                font-size: 1.5rem;
+            }
+            
+            .tour-price {
+                font-size: 1.5rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none;">
+                <img src="../logo.png" class="logo-placeholder"></a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="tours.html">Туры</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                    <li><a href="booknow.html">Забронировать</a></li>
+                    <li class="language-selector" style="display: flex; align-items: center;">
+                        <a href="../index.html"><img src="../uk.jpg" style="width: 40px;"></a>
+                        <a href="../mon/index.html"><img src="../mon.jpg" style="width: 40px;"></a>
+                        <a href="index.html" class="active"><img src="../rus.jpg" style="width: 40px;"></a>
+                        <a href="../fr/index.html"><img src="../france.jpg" style="width: 40px;"></a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <h1>Наши туры по Скадарскому озеру</h1>
+            <p>Откройте природную красоту, богатую историю и аутентичные традиции Скадарского озера</p>
+        </div>
+    </section>
+
+    <section class="tours-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Исследуйте наши туры</h2>
+                <p>Выберите из нашего предложения тщательно созданных впечатлений на Скадарском озере</p>
+            </div>
+            
+            <div class="tour-list">
+                <div class="tour-item" id="grmozur">
+    <div class="tour-image">
+        <div class="tour-badge">Самый популярный</div>
+        <img src="../grmozur.jpg" alt="Остров Грможур - Черногорский Алькатрас">
+    </div>
+    <div class="tour-details">
+        <h2 class="tour-title">Остров Грможур - Черногорский Алькатрас</h2>
+        <p class="tour-description">Грможур - это небольшой каменный остров на Скадарском озере, когда-то известный как черногорский Алькатрас - тюрьма во время правления короля Николы. Построенный в 1843 году, сегодня его руины дают представление о тяжелой жизни бывших заключенных. Сегодня это орнитологический заповедник, который привлекает любителей природы и путешественников.</p>
+        
+        <div class="tour-features">
+            <ul class="feature-list">
+                <li><span class="feature-icon"><i class="fa-solid fa-check"></i></span> Часовая панорамная поездка на лодке</li>
+                <li><span class="feature-icon"><i class="fa-solid fa-check"></i></span> Возможность купания (сезонно)</li>
+            </ul>
+        </div>
+        
+        <div class="tour-meta">
+            <div class="meta-item">
+                <span class="meta-icon"><i class="fa-regular fa-clock"></i></span>
+                Продолжительность: 1 час
+            </div>
+            <div class="meta-item">
+                <span class="meta-icon"><i class="fa-solid fa-calendar-check"></i></span>
+                Доступно: Апрель - Октябрь
+            </div>
+        </div>
+        
+        <div class="tour-price">
+            5€ <span class="price-suffix">с человека</span>
+        </div>
+        
+        <div class="tour-actions">
+            <a href="booknow.html" class="btn">Забронировать</a>
+        </div>
+    </div>
+</div>
+
+<div class="tour-item" id="panorama">
+    <div class="tour-image">
+        <img src="../panorama.jpg">
+    </div>
+    <div class="tour-details">
+        <h2 class="tour-title">Панорамное впечатление Скадарского озера</h2>
+        <p class="tour-description">Этот тур включает вход в птичий заповедник, мелкие каналы, покрытые цветами лотоса, прекрасные пейзажи и возможность отдыха для купания посреди озера.</p>
+        
+        <div class="tour-features">
+            <ul class="feature-list">
+                <li><span class="feature-icon"><i class="fa-solid fa-check"></i></span> Двухчасовой экскурсионный тур</li>
+            </ul>
+        </div>
+        
+        <div class="tour-meta">
+            <div class="meta-item">
+                <span class="meta-icon"><i class="fa-regular fa-clock"></i></span>
+                Продолжительность: 2 часа
+            </div>
+        </div>
+        
+        <div class="tour-price">
+            5€ <span class="price-suffix">с человека</span>
+        </div>
+        
+        <div class="tour-actions">
+            <a href="booknow.html" class="btn">Забронировать</a>
+        </div>
+    </div>
+</div>
+
+<div class="tour-item" id="vranjina">
+    <div class="tour-image">
+        <img src="../vranjina.jpg" alt="Рыболовный тур">
+    </div>
+    <div class="tour-details">
+        <h2 class="tour-title">Монастырь Враньина</h2>
+        <p class="tour-description">Отправление из Вирпазара через узкие каналы, покрытые лотосами, к одному из красивейших монастырей - Враньине. Короткая 15-минутная прогулка ведет нас к смотровой площадке с невероятным панорамным видом на Скадарское озеро.</p>
+        
+        <div class="tour-features">
+            <ul class="feature-list">
+                <li><span class="feature-icon"><i class="fa-solid fa-check"></i></span> Трехчасовой рыболовный опыт</li>
+            </ul>
+        </div>
+        
+        <div class="tour-meta">
+            <div class="meta-item">
+                <span class="meta-icon"><i class="fa-regular fa-clock"></i></span>
+                Продолжительность: 3 часа
+            </div>
+            <div class="meta-item">
+                <span class="meta-icon"><i class="fa-solid fa-users"></i></span>
+                Размер группы: Максимум 6 человек
+            </div>
+            <div class="meta-item">
+                <span class="meta-icon"><i class="fa-solid fa-calendar-check"></i></span>
+                Доступно: Март - Ноябрь
+            </div>
+        </div>
+        
+        <div class="tour-price">
+            5€ <span class="price-suffix">с человека</span>
+        </div>
+        
+        <div class="tour-actions">
+            <a href="booknow.html" class="btn">Забронировать</a>
+        </div>
+    </div>
+</div>
+
+<div class="tour-item" id="poseljani">
+    <div class="tour-image">
+        <img src="../poseljani.jpg" alt="Село Посельяни">
+    </div>
+    <div class="tour-details">
+        <h2 class="tour-title">Село Посельяни</h2>
+        <p class="tour-description">Поездка из Вирпазара в заброшенное село Посельяни идеально подходит для гостей, которые любят активные туры. Идем пешком 800м к прекрасным водопадам и руинам старых водяных мельниц. Это когда-то процветающее село имело 15 водяных мельниц, но со временем они перестали быть нужными. Сегодня здесь остались только стены, заросшие плющом, и мост возрастом 300 лет.</p>
+        
+        <div class="tour-features">
+            <ul class="feature-list">
+                <li><span class="feature-icon"><i class="fa-solid fa-check"></i></span> Четырехчасовой тур</li>
+                <li><span class="feature-icon"><i class="fa-solid fa-check"></i></span> Исторический гид</li>
+                <li><span class="feature-icon"><i class="fa-solid fa-check"></i></span> Традиционный сельский опыт</li>
+            </ul>
+        </div>
+        
+        <div class="tour-meta">
+            <div class="meta-item">
+                <span class="meta-icon"><i class="fa-regular fa-clock"></i></span>
+                Продолжительность: 4 часа
+            </div>
+            <div class="meta-item">
+                <span class="meta-icon"><i class="fa-solid fa-users"></i></span>
+                Размер группы: Максимум 6 человек
+            </div>
+        </div>
+        
+        <div class="tour-price">
+            5€ <span class="price-suffix">с человека</span>
+        </div>
+        
+        <div class="tour-actions">
+            <a href="booknow.html" class="btn">Забронировать</a>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Готовы к вашему приключению на Скадарском озере?</h2>
+                <p class="cta-text">Забронируйте ваш тур сегодня и испытайте природную красоту и богатое культурное наследие этой уникальной экосистемы</p>
+                <div class="cta-buttons">
+                    <a href="booknow.html" class="btn btn-light">Забронировать сейчас</a>
+                    <a href="contact.html" class="btn">Связаться с нами</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Carevo Skadar Lake</h3>
+                    <p>Лучшие лодочные туры по Скадарскому озеру. Испытайте уникальное приключение в сердце нетронутой природы с нашими экспертными гидами.</p>
+                    <div class="social-icons">
+                        <a href="tel:+38267601053" class="social-icon"><i class="fa fa-phone"></i></a>
+                        <a href="https://www.instagram.com/carevo_skadar_lake_cruise/" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="mailto:" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="" class="social-icon"><img src="../gyg.jpg" style="max-width: 50%;"></a>
+                        <a href="https://g.co/kgs/xnQtTcg" class="social-icon"><i class="fa-brands fa-google"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="tours.html">Наши туры</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                        <li><a href="booknow.html">Забронировать</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Наши туры</h3>
+                    <ul>
+                        <li><a href="tours.html#grmozur">Остров Грможур</a></li>
+                        <li><a href="tours.html#panorama">Панорамное впечатление Скадарского озера</a></li>
+                        <li><a href="tours.html#vranjina">Монастырь Враньина</a></li>
+                        <li><a href="tours.html#poseljani">Село Посельяни</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Рабочие часы</h3>
+                    <ul>
+                        <li>Понедельник - Воскресенье: 8:00 - 22:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Авторские права &copy; 2025 Carevo Skadar Lake</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    });
+                });
+            }
+
+            // Tour category buttons
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Here you would normally filter the tours based on category
+                    // For this demo, we're just toggling the active state
+                });
+            });
+
+            // FAQ accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', function() {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

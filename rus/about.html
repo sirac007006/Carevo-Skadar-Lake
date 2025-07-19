@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <title>About Us | Carevo Skadar Lake Tours</title>
+    <title>О нас | Carevo Skadar Lake Туры</title>
     <style>
         :root {
             --primary: #2c5f2d;
@@ -180,7 +180,7 @@
         
         /* Page Banner */
         .page-banner {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('pocetna.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../pocetna.jpg');
             background-size: cover;
             background-position: center;
             height: 50vh;
@@ -294,6 +294,57 @@
 
         .content-image:hover img {
             transform: scale(1.05);
+        }
+
+        /* Why Choose Us Section */
+        .features-section {
+            padding: 70px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(44, 95, 45, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-text {
+            color: #666;
+            font-size: 0.95rem;
         }
 
         /* Team Section */
@@ -468,7 +519,7 @@
         /* CTA Section */
         .cta-section {
             padding: 80px 0;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('pocetna.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../pocetna.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -708,19 +759,21 @@
     <header id="header">
         <div class="container nav-container">
             <div class="logo">
-                <a href="index.html" style="text-decoration: none;">
-                <img src="logo.png" class="logo-placeholder"></a>
+                <a href="../index.html" style="text-decoration: none;">
+                <img src="../logo.png" class="logo-placeholder"></a>
             </div>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="tours.html">Tours</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="booknow.html">Book Now</a></li>
-                    <li class="language-selector">
-                        <a href="index.html" class="active"><img src="uk.jpg" style="width: 40px;"></a>
-                        <a href="rusindex.html"><img src="rus.jpg" style="width: 40px;"></a>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="tours.html">Туры</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                    <li><a href="booknow.html">Забронировать</a></li>
+                    <li class="language-selector" style="display: flex; align-items: center;">
+                        <a href="../index.html"><img src="../uk.jpg" style="width: 40px;"></a>
+                        <a href="../mon/index.html"><img src="../mon.jpg" style="width: 40px;"></a>
+                        <a href="index.html" class="active"><img src="../rus.jpg" style="width: 40px;"></a>
+                        <a href="../fr/index.html"><img src="../france.jpg" style="width: 40px;"></a>
                     </li>
                 </ul>
                 <div class="hamburger">
@@ -734,48 +787,91 @@
 
     <section class="page-banner">
         <div class="container">
-            <h1>About Carevo Skadar Lake</h1>
-            <p>Discover our story, our team, and what makes our tours truly special</p>
+            <h1>О Carevo Skadar Lake</h1>
+            <p>Добро пожаловать на Скадарское озеро – испытайте магию природы с нами</p>
         </div>
     </section>
 
     <section class="about-section">
         <div class="container">
             <div class="section-title">
-                <h2>Our Story</h2>
-                <p>Learn more about our journey and commitment to providing unforgettable experiences</p>
+                <h2>Наша история</h2>
+                <p>Семейная традиция разделения красоты Скадарского озера с посетителями со всего мира</p>
             </div>
             
             <div class="about-content">
                 <div class="content-text">
-                    <h3>Our Beginnings</h3>
-                    <p>Carevo Skadar Lake was founded with a simple yet powerful vision: to share the breathtaking beauty and rich heritage of Lake Skadar with visitors from around the world. What began as a small family operation has grown into the region's premier tour provider, while still maintaining our commitment to authentic, personalized experiences.</p>
-                    <p>Our journey started over a decade ago when our founder, a local who grew up on the shores of Lake Skadar, decided to share his deep knowledge and passion for this unique ecosystem with travelers seeking to explore Montenegro's natural treasures.</p>
+                    <h3>Наше семейное наследие</h3>
+                    <p>Более 15 лет наша семья с любовью и преданностью ведет бизнес, посвященный озерному туризму. Как хозяева из сердца села на берегу Скадарского озера, мы живем рядом с этим чудесным озером поколениями – мы знаем каждый его уголок, каждую историю и скрытую красоту, которыми хотим поделиться с вами.</p>
+                    <p>Наша глубокая связь с этим краем дает нам уникальные понимания его истории, экологии и культуры, которые могут прийти только из жизненного опыта. То, что начиналось как небольшой семейный бизнес, выросло в ведущее туристическое агентство в регионе, сохраняя нашу преданность аутентичным, персонализированным впечатлениям.</p>
                 </div>
                 <div class="content-image">
-                    <img src="boat.jpg" alt="Our boat on Lake Skadar">
+                    <img src="../boat.jpg" alt="Наша лодка на Скадарском озере">
                 </div>
             </div>
 
             <div class="about-content">
                 <div class="content-text">
-                    <h3>Our Mission</h3>
-                    <p>At Carevo Skadar Lake, our mission is to provide visitors with an authentic, immersive experience that goes beyond typical tourism. We strive to create meaningful connections between our guests and the natural environment, local culture, and traditions of the Lake Skadar region.</p>
-                    <p>We are committed to sustainable tourism practices that help preserve this precious ecosystem for future generations while supporting local communities. Every tour we conduct is designed with respect for nature and local traditions at its core.</p>
+                    <h3>Наш уникальный опыт</h3>
+                    <p>Мы организуем круизы на лодке и приключения на каяках, идеальные для всех, кто хочет познакомиться с мирной, аутентичной и нетронутой стороной Скадарского озера. Плывя по спокойным водам, вы откроете старые монастыри на островах, скрытые бухты, богатый птичий мир и пейзажи, захватывающие дух.</p>
+                    <p>Наши опытные хозяева с удовольствием расскажут вам интересные истории и легенды об озере, а также порекомендуют лучшие места для фотографирования и отдыха. Если вы любите приключения, поездка на каяке - идеальная возможность исследовать узкие каналы и тихие лагуны в своем собственном темпе, слившись с природой, вдали от толпы и шума.</p>
                 </div>
                 <div class="content-image">
-                    <img src="pocetna.jpg" alt="Lake Skadar landscape">
+                    <img src="../pocetna.jpg" alt="Пейзаж Скадарского озера">
                 </div>
             </div>
 
             <div class="about-content">
                 <div class="content-text">
-                    <h3>The Carevo Difference</h3>
-                    <p>What sets Carevo Skadar Lake apart is our deep local knowledge and genuine passion for this remarkable ecosystem. Our guides aren't just tour operators – they're locals who have grown up on and around the lake, with generations of knowledge about its hidden gems, wildlife, and history.</p>
-                    <p>We believe in small group experiences that allow for personal attention and flexibility. Whether you're interested in birdwatching, photography, fishing, history, or simply relaxing in nature, we tailor each tour to ensure it meets your interests and exceeds your expectations.</p>
+                    <h3>Что делает нас особенными</h3>
+                    <p>То, что выделяет Carevo Skadar Lake, - это наши глубокие местные знания и искренняя страсть к этой исключительной экосистеме. Наши гиды - не просто туристические операторы - это жители, которые выросли на озере и вокруг него, с поколенческими знаниями о его скрытых жемчужинах, дикой природе и истории.</p>
+                    <p>Мы верим в опыт в малых группах, который позволяет личное внимание и гибкость. Независимо от того, интересуетесь ли вы наблюдением за птицами, фотографией, рыбалкой, историей или просто расслаблением на природе, мы адаптируем каждый тур, чтобы удовлетворить ваши интересы и превзойти ваши ожидания.</p>
                 </div>
                 <div class="content-image">
-                    <img src="https://cdnjs.cloudflare.com/ajax/libs/pexels-images/1/backgrounds/birds-nature.jpg" alt="Wildlife on Lake Skadar">
+                    <img src="../panorama.jpg" alt="Дикая природа Скадарского озера">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Почему выбрать нас?</h2>
+                <p>Откройте, что делает наши туры на Скадарском озере действительно исключительными</p>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <h3 class="feature-title">15+ лет опыта</h3>
+                    <p class="feature-text">Наша семья проводит туры на Скадарском озере более 15 лет, строя репутацию совершенства.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="feature-title">Местные гиды-эксперты</h3>
+                    <p class="feature-text">Наши гиды - местные жители, которые по-настоящему знают озеро и могут поделиться аутентичными историями и скрытыми местами.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="feature-title">Теплая семейная атмосфера</h3>
+                    <p class="feature-text">Испытайте настоящее черногорское гостеприимство с нашими семейными турами и персонализированным сервисом.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="feature-title">Безопасные и комфортные лодки</h3>
+                    <p class="feature-text">Наши хорошо обслуживаемые суда обеспечивают безопасное и комфортное путешествие по Скадарскому озеру.</p>
                 </div>
             </div>
         </div>
@@ -785,20 +881,19 @@
         <div class="container">
             <div class="stats-container">
                 <div class="stat-item">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-title">Years of Experience</div>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-title">Лет опыта</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">5000+</div>
-                    <div class="stat-title">Happy Visitors</div>
+                    <div class="stat-title">Довольных посетителей</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">15+</div>
-                    <div class="stat-title">Tour Options</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">4.9</div>
-                    <div class="stat-title">Average Rating</div>
+                    <div class="stat-title">Средняя оценка</div>
                 </div>
             </div>
         </div>
@@ -807,10 +902,10 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Experience Lake Skadar?</h2>
-                <p>Join us for an unforgettable journey through one of Europe's most pristine natural environments. Book your tour today and create memories that will last a lifetime.</p>
-                <a href="booknow.html" class="btn">Book Your Tour Now</a>
-                <a href="contact.html" class="btn btn-outline">Contact Us</a>
+                <h2>Готовы к впечатлению Скадарского озера?</h2>
+                <p>Доверьтесь нашей заботе и позвольте нам показать вам, почему Скадарское озеро - одно из самых особенных мест в Черногории. Хотите ли вы романтический круиз, семейную поездку или активный отдых на природе - мы здесь, чтобы сделать ваш опыт незабываемым.</p>
+                <a href="booknow.html" class="btn">Забронируйте ваш тур</a>
+                <a href="contact.html" class="btn btn-outline">Свяжитесь с нами</a>
             </div>
         </div>
     </section>
@@ -820,44 +915,43 @@
             <div class="footer-container">
                 <div class="footer-column">
                     <h3>Carevo Skadar Lake</h3>
-                    <p>The best boat tours on Lake Skadar. Experience a unique adventure in the heart of untouched nature with our expert guides.</p>
+                    <p>Лучшие лодочные туры по Скадарскому озеру. Испытайте уникальное приключение в сердце нетронутой природы с нашими экспертными гидами.</p>
                     <div class="social-icons">
                         <a href="tel:+38267601053" class="social-icon"><i class="fa fa-phone"></i></a>
                         <a href="https://www.instagram.com/carevo_skadar_lake_cruise/" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
                         <a href="mailto:" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
-                        <a href="" class="social-icon"><img src="gyg.jpg" style="max-width: 50%;"></a>
+                        <a href="" class="social-icon"><img src="../gyg.jpg" style="max-width: 50%;"></a>
                         <a href="https://g.co/kgs/xnQtTcg" class="social-icon"><i class="fa-brands fa-google"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
-                    <h3>Quick Links</h3>
+                    <h3>Быстрые ссылки</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="tours.html">Our Tours</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="booknow.html">Book Now</a></li>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="tours.html">Наши туры</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                        <li><a href="booknow.html">Забронировать</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Our Tours</h3>
+                    <h3>Наши туры</h3>
                     <ul>
-                        <li><a href="#tours">Sunset on the Lake</a></li>
-                        <li><a href="#tours">Birdwatching</a></li>
-                        <li><a href="#tours">Fishing Trip</a></li>
-                        <li><a href="#tours">Cultural Heritage Exploration</a></li>
-                        <li><a href="#tours">Custom Tours</a></li>
+                        <li><a href="tours.html#grmozur">Остров Грможур</a></li>
+                        <li><a href="tours.html#panorama">Панорамное впечатление Скадарского озера</a></li>
+                        <li><a href="tours.html#vranjina">Монастырь Враньина</a></li>
+                        <li><a href="tours.html#poseljani">Село Посельяни</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Opening Hours</h3>
+                    <h3>Рабочие часы</h3>
                     <ul>
-                        <li>Monday - Sunday: 8:00 - 22:00</li>
+                        <li>Понедельник - Воскресенье: 8:00 - 22:00</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>Copyright &copy; 2025 Carevo Skadar Lake</p>
+                <p>Авторские права &copy; 2025 Carevo Skadar Lake</p>
             </div>
         </div>
     </footer>

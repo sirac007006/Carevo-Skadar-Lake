@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <title>Забронировать сейчас | Carevo Skadar Lake Туры</title>
+    <style>
+        :root {
+            --primary: #2c5f2d;
+            --secondary: #97bc62;
+            --accent: #1e81b0;
+            --light: #f9f9f9;
+            --dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-placeholder {
+            width: 70px;
+            height: 70px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark);
+            font-size: 18px;
+            border-radius: 50%;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .language-selector {
+            display: flex;
+            margin-left: 30px;
+        }
+        
+        .language-selector a {
+            margin-left: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .language-selector a:hover {
+            color: var(--primary);
+        }
+        
+        .language-selector a.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .hamburger span {
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background-color: var(--dark);
+            border-radius: 3px;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger span:first-child {
+            top: 0;
+        }
+        
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+        
+        .hamburger span:last-child {
+            top: 16px;
+        }
+        
+        .hamburger.active span:first-child {
+            transform: rotate(45deg);
+            top: 8px;
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:last-child {
+            transform: rotate(-45deg);
+            top: 8px;
+        }
+        
+        /* Page Banner */
+        .page-banner {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../pocetna.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .page-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .page-banner p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Booking Section Styles */
+        .booking-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Tour Selection Grid */
+        .tour-selection {
+            margin-bottom: 60px;
+        }
+
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .tour-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .tour-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tour-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .tour-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .tour-card:hover .tour-img img {
+            transform: scale(1.1);
+        }
+
+        .tour-select {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 25px;
+            height: 25px;
+            border: 2px solid white;
+            border-radius: 50%;
+            background-color: transparent;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .tour-card.selected .tour-select {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .tour-card.selected .tour-select::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 14px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .tour-content {
+            padding: 20px;
+        }
+        
+        .tour-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .tour-content p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .tour-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .tour-badge {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Booking Form */
+        .booking-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.2);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .btn-submit {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 500;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-submit:hover {
+            background-color: #234d24;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .step-description {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            background-color: #f8f9fa;
+            padding: 20px;
+            cursor: pointer;
+            position: relative;
+            font-weight: 600;
+            color: var(--dark);
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 60px 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../pocetna.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 10px 0;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 0;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .footer-column p {
+            color: #bbb;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 991px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 100px;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .language-selector {
+                margin: 15px 0;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .hamburger {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .booking-form-container {
+                padding: 30px 20px;
+            }
+            
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-banner h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .tours-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .page-banner h1 {
+                font-size: 2rem;
+            }
+            
+            .page-banner p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none;">
+                <img src="../logo.png" class="logo-placeholder"></a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="tours.html">Туры</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                    <li><a href="booknow.html">Забронировать</a></li>
+                    <li class="language-selector" style="display: flex; align-items: center;">
+                        <a href="../index.html"><img src="../uk.jpg" style="width: 40px;"></a>
+                        <a href="../mon/index.html"><img src="../mon.jpg" style="width: 40px;"></a>
+                        <a href="index.html" class="active"><img src="../rus.jpg" style="width: 40px;"></a>
+                        <a href="../fr/index.html"><img src="../france.jpg" style="width: 40px;"></a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <h1>Забронируйте ваш опыт на Скадарском озере</h1>
+            <p>Забронируйте ваш тур и создайте незабываемые воспоминания</p>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <div class="container">
+            
+            <div class="booking-form-container">
+                <h3 class="form-title">Полные детали бронирования</h3>
+                <form class="booking-form" action="mailto:" method="POST">
+                    <div class="form-group">
+                        <label class="form-label">Имя*</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Фамилия*</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email*</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Номер телефона*</label>
+                        <input type="tel" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Желаемая дата*</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Количество человек*</label>
+                        <select class="form-control" required>
+                            <option value="" selected disabled>Выберите</option>
+                            <option value="1">1 человек</option>
+                            <option value="2">2 человека</option>
+                            <option value="3">3 человека</option>
+                            <option value="4">4 человека</option>
+                            <option value="5">5 человек</option>
+                            <option value="6+">6+ человек</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Тур</label>
+                        <select class="form-control" required>
+                            <option value="" selected disabled>Выберите</option>
+                            <option value="Остров Грможур - черногорский Алькатрас">Остров Грможур - черногорский Алькатрас</option>
+                            <option value="Панорамное впечатление Скадарского озера">Панорамное впечатление Скадарского озера</option>
+                            <option value="Монастырь Враньина">Монастырь Враньина</option>
+                            <option value="Село Посельяни">Село Посельяни</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Особые требования или вопросы</label>
+                        <textarea class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn-submit">Забронировать сейчас</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Как это работает</h2>
+                <p>Простые шаги для бронирования вашего опыта на Скадарском озере</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Выберите ваш тур</h3>
+                    <p class="step-description">Просмотрите наш выбор туров и выберите опыт, который вас больше всего интересует.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Заполните форму бронирования</h3>
+                    <p class="step-description">Заполните форму бронирования с вашими контактными данными и желаемой датой.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Подтверждение</h3>
+                    <p class="step-description">Получите подтверждение бронирования по электронной почте со всеми деталями вашего тура.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Наслаждайтесь вашим туром</h3>
+                    <p class="step-description">Встретимся в назначенном месте и наслаждайтесь вашим приключением на Скадарском озере!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Часто задаваемые вопросы</h2>
+                <p>Найдите ответы на частые вопросы о наших турах и процессе бронирования</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Что мне нужно взять с собой на тур?</div>
+                    <div class="faq-answer">
+                        <p>Мы рекомендуем взять солнцезащитный крем, шляпу, солнцезащитные очки, легкую куртку (даже летом, так как на воде может быть прохладно), удобную одежду и камеру. Для рыболовных туров все оборудование предоставляется. Питьевая вода предоставляется на всех турах.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">За сколько заранее мне нужно бронировать?</div>
+                    <div class="faq-answer">
+                        <p>Мы рекомендуем бронирование минимум за 2-3 дня в обычный сезон и за 1-2 недели в пиковые летние месяцы (июль-август), чтобы обеспечить доступность. Для больших групп рекомендуется более раннее бронирование.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Какова ваша политика отмены?</div>
+                    <div class="faq-answer">
+                        <p>Вы можете отменить бесплатно до 24 часов до вашего тура. Отмена менее чем за 24 часа до начала может подлежать плате за отмену. В случае плохих погодных условий мы предложим вам альтернативную дату или полный возврат средств.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Подходят ли туры для детей?</div>
+                    <div class="faq-answer">
+                        <p>Да, большинство наших туров адаптированы для семей и подходят для детей всех возрастов. Мы предоставляем спасательные жилеты для всех пассажиров, включая подходящие размеры для детей. Закатные туры и туры наблюдения за птицами особенно популярны среди семей.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Предлагаете ли вы частные туры?</div>
+                    <div class="faq-answer">
+                        <p>Да, мы предлагаем частные туры для отдельных лиц, семей и групп, которые предпочитают персонализированный опыт. Частные туры могут быть адаптированы к вашим интересам и расписанию. Пожалуйста, свяжитесь с нами напрямую для цен и доступности.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Какие способы оплаты вы принимаете?</div>
+                    <div class="faq-answer">
+                        <p>Мы принимаем наличные (EUR), кредитные/дебетовые карты (Visa, Mastercard) и PayPal. Для бронирования туров мы требуем депозит 20% для обеспечения вашего бронирования, с остатком, подлежащим оплате в день тура.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Есть вопросы?</h2>
+                <p>Если вам нужна любая дополнительная информация или у вас есть особые требования, не стесняйтесь связаться с нами напрямую.</p>
+                <a href="contact.html" class="btn">Свяжитесь с нами</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Carevo Skadar Lake</h3>
+                    <p>Лучшие лодочные туры по Скадарскому озеру. Испытайте уникальное приключение в сердце нетронутой природы с нашими экспертными гидами.</p>
+                    <div class="social-icons">
+                        <a href="tel:+38267601053" class="social-icon"><i class="fa fa-phone"></i></a>
+                        <a href="https://www.instagram.com/carevo_skadar_lake_cruise/" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="mailto:" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="" class="social-icon"><img src="../gyg.jpg" style="max-width: 50%;"></a>
+                        <a href="https://g.co/kgs/xnQtTcg" class="social-icon"><i class="fa-brands fa-google"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="tours.html">Наши туры</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                        <li><a href="booknow.html">Забронировать</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Наши туры</h3>
+                    <ul>
+                        <li><a href="tours.html#grmozur">Остров Грможур</a></li>
+                        <li><a href="tours.html#panorama">Панорамное впечатление Скадарского озера</a></li>
+                        <li><a href="tours.html#vranjina">Монастырь Враньина</a></li>
+                        <li><a href="tours.html#poseljani">Село Посельяни</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Рабочие часы</h3>
+                    <ul>
+                        <li>Понедельник - Воскресенье: 8:00 - 22:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Авторские права &copy; 2025 Carevo Skadar Lake</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    });
+                });
+            }
+
+            // Tour card selection
+            const tourCards = document.querySelectorAll('.tour-card');
+            tourCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Toggle selected class
+                    this.classList.toggle('selected');
+                });
+            });
+
+            // FAQ accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', function() {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

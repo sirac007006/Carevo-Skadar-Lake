@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <title>About Us | Carevo Skadar Lake Tours</title>
+    <style>
+        :root {
+            --primary: #2c5f2d;
+            --secondary: #97bc62;
+            --accent: #1e81b0;
+            --light: #f9f9f9;
+            --dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-placeholder {
+            width: 70px;
+            height: 70px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark);
+            font-size: 18px;
+            border-radius: 50%;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .language-selector {
+            display: flex;
+            margin-left: 30px;
+        }
+        
+        .language-selector a {
+            margin-left: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .language-selector a:hover {
+            color: var(--primary);
+        }
+        
+        .language-selector a.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .hamburger span {
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background-color: var(--dark);
+            border-radius: 3px;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger span:first-child {
+            top: 0;
+        }
+        
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+        
+        .hamburger span:last-child {
+            top: 16px;
+        }
+        
+        .hamburger.active span:first-child {
+            transform: rotate(45deg);
+            top: 8px;
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:last-child {
+            transform: rotate(-45deg);
+            top: 8px;
+        }
+        
+        /* Page Banner */
+        .page-banner {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../pocetna.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .page-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .page-banner p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* About Content Styles */
+        .about-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .about-content:nth-child(even) {
+            direction: rtl;
+        }
+
+        .about-content:nth-child(even) .content-text {
+            direction: ltr;
+        }
+
+        .content-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .content-text h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .content-text p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .content-image {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .content-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Why Choose Us Section */
+        .features-section {
+            padding: 70px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(44, 95, 45, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-text {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .member-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: #f8f9fa;
+            border-radius: 50%;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 60px 0;
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .testimonial {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .testimonial-text::before {
+            content: "";
+            font-size: 4rem;
+            position: absolute;
+            left: -10px;
+            top: -20px;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../pocetna.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 10px 0;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 0;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .footer-column p {
+            color: #bbb;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 991px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 100px;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .language-selector {
+                margin: 15px 0;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .hamburger {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .about-content:nth-child(even) {
+                direction: ltr;
+            }
+            
+            .content-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .page-banner h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-banner p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none;">
+                <img src="../logo.png" class="logo-placeholder"></a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="tours.html">Tours</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booknow.html">Book Now</a></li>
+                    <li class="language-selector" style="display: flex; align-items: center;">
+                        <a href="../index.html"><img src="../uk.jpg" style="width: 40px;"></a>
+                        <a href="../mon/index.html"><img src="../mon.jpg" style="width: 40px;"></a>
+                        <a href="../rus/index.html"><img src="../rus.jpg" style="width: 40px;"></a>
+                        <a href="../fr/index.html"><img src="../france.jpg" style="width: 40px;"></a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <h1>About Carevo Skadar Lake</h1>
+            <p>Welcome to Lake Skadar – Experience the Magic of Nature with Us</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+                <p>A family tradition of sharing Lake Skadar's beauty with visitors from around the world</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="content-text">
+                    <h3>Our Family Heritage</h3>
+                    <p>For over 15 years, our family has been passionately running a business dedicated to lake tourism. As hosts from a lakeside village on the shores of Lake Skadar, we have lived alongside this magical lake for generations – we know every corner, every story, and every hidden beauty that we want to share with you.</p>
+                    <p>Our deep connection to this land gives us unique insights into its history, ecology, and culture that can only come from a lifetime of experience. What began as a small family operation has grown into the region's premier tour provider, while still maintaining our commitment to authentic, personalized experiences.</p>
+                </div>
+                <div class="content-image">
+                    <img src="../boat.jpg" alt="Our boat on Lake Skadar">
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div class="content-text">
+                    <h3>Our Unique Experiences</h3>
+                    <p>We organize boat cruises and kayaking adventures, perfect for anyone wanting to discover the peaceful, authentic, and untouched side of Lake Skadar. Sailing on calm waters, you'll discover ancient island monasteries, hidden coves, rich birdlife, and breathtaking landscapes.</p>
+                    <p>Our experienced hosts will gladly share interesting stories and legends about the lake, as well as recommend the best spots for photography and relaxation. If you love adventure, kayaking is an ideal opportunity to explore narrow channels and quiet lagoons at your own pace, immersed in nature, away from crowds and noise.</p>
+                </div>
+                <div class="content-image">
+                    <img src="../pocetna.jpg" alt="Lake Skadar landscape">
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div class="content-text">
+                    <h3>The Carevo Difference</h3>
+                    <p>What sets Carevo Skadar Lake apart is our deep local knowledge and genuine passion for this remarkable ecosystem. Our guides aren't just tour operators – they're locals who have grown up on and around the lake, with generations of knowledge about its hidden gems, wildlife, and history.</p>
+                    <p>We believe in small group experiences that allow for personal attention and flexibility. Whether you're interested in birdwatching, photography, fishing, history, or simply relaxing in nature, we tailor each tour to ensure it meets your interests and exceeds your expectations.</p>
+                </div>
+                <div class="content-image">
+                    <img src="../panorama.jpg" alt="Wildlife on Lake Skadar">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us?</h2>
+                <p>Discover what makes our Lake Skadar tours truly exceptional</p>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <h3 class="feature-title">15+ Years of Experience</h3>
+                    <p class="feature-text">Our family has been guiding tours on Lake Skadar for over 15 years, building a reputation for excellence.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="feature-title">Local Expert Guides</h3>
+                    <p class="feature-text">Our guides are locals who truly know the lake and can share authentic stories and hidden spots.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="feature-title">Warm Family Atmosphere</h3>
+                    <p class="feature-text">Experience genuine Montenegrin hospitality with our family-run tours and personalized service.</p>
+                </div>
+                
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="feature-title">Safe and Comfortable Boats</h3>
+                    <p class="feature-text">Our well-maintained vessels ensure a safe and comfortable journey across Lake Skadar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-title">Years of Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-title">Happy Visitors</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-title">Tour Options</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-title">Average Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Lake Skadar?</h2>
+                <p>Let us guide you and show you why Lake Skadar is one of the most special places in Montenegro. Whether you're looking for a romantic cruise, a family excursion, or an active nature getaway – we're here to make your experience unforgettable.</p>
+                <a href="booknow.html" class="btn">Book Your Tour Now</a>
+                <a href="contact.html" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Carevo Skadar Lake</h3>
+                    <p>The best boat tours on Lake Skadar. Experience a unique adventure in the heart of untouched nature with our expert guides.</p>
+                    <div class="social-icons">
+                        <a href="tel:+38267601053" class="social-icon"><i class="fa fa-phone"></i></a>
+                        <a href="https://www.instagram.com/carevo_skadar_lake_cruise/" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="mailto:" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="" class="social-icon"><img src="../gyg.jpg" style="max-width: 50%;"></a>
+                        <a href="https://g.co/kgs/xnQtTcg" class="social-icon"><i class="fa-brands fa-google"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="tours.html">Our Tours</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="booknow.html">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Tours</h3>
+                    <ul>
+                        <li><a href="tours.html#grmozur">Grmožur Island</a></li>
+                        <li><a href="tours.html#panorama">Skadar Lake Panoramic Experience</a></li>
+                        <li><a href="tours.html#vranjina">Monastery Vranjina</a></li>
+                        <li><a href="tours.html#poseljani">Poseljani Village</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li>Monday - Sunday: 8:00 - 22:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright &copy; 2025 Carevo Skadar Lake</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    });
+                });
+            }
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
