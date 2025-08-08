@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <title>About Us | Carevo Skadar Lake Tours</title>
+    <title>Kayak Tours | Carevo Skadar Lake Tours</title>
     <style>
         :root {
             --primary: #2c5f2d;
@@ -183,7 +183,7 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../pocetna.jpg');
             background-size: cover;
             background-position: center;
-            height: 50vh;
+            height: 40vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -204,9 +204,9 @@
             margin: 0 auto;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
-        
-        /* About Content Styles */
-        .about-section {
+
+        /* Kayak Section */
+        .kayak-section {
             padding: 80px 0;
             background-color: white;
         }
@@ -241,339 +241,183 @@
             margin: 0 auto;
         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            margin-bottom: 60px;
-        }
-
-        .about-content:nth-child(even) {
-            direction: rtl;
-        }
-
-        .about-content:nth-child(even) .content-text {
-            direction: ltr;
-        }
-
-        .content-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-            position: relative;
-        }
-
-        .content-text h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary);
-            bottom: -10px;
-            left: 0;
-        }
-
-        .content-text p {
-            margin-bottom: 15px;
-            color: #555;
-        }
-
-        .content-image {
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .content-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .content-image:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Why Choose Us Section */
-        .features-section {
-            padding: 70px 0;
-            background-color: #f8f9fa;
-        }
-        
-        .features-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .feature-box {
-            background-color: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-        
-        .feature-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(44, 95, 45, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: var(--primary);
-            font-size: 28px;
-        }
-        
-        .feature-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .feature-text {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Team Section */
-        .team-section {
-            padding: 80px 0;
-            background-color: #f8f9fa;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .team-member {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .member-img {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .member-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .member-info {
-            padding: 20px;
-        }
-
-        .member-info h4 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .member-info p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .member-social {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            background-color: #f8f9fa;
-            border-radius: 50%;
-            color: var(--dark);
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            padding: 60px 0;
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 20px;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .stat-title {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        /* Testimonials */
-        .testimonials-section {
-            padding: 80px 0;
-            background-color: white;
-        }
-
-        .testimonial {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 30px;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: #555;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .testimonial-text::before {
-            content: "";
-            font-size: 4rem;
-            position: absolute;
-            left: -10px;
-            top: -20px;
-            color: var(--primary);
-            opacity: 0.3;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-        }
-
-        .author-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .author-info p {
-            color: #777;
-            font-size: 0.9rem;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            padding: 80px 0;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../pocetna.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            text-align: center;
-        }
-
-        .cta-content {
+        /* Kayak Tour Card */
+        .kayak-tour-container {
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .cta-content h2 {
-            font-size: 2.5rem;
+        .kayak-tour-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .kayak-tour-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .tour-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tour-duration {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .tour-difficulty {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .tour-content {
+            padding: 40px;
+        }
+
+        .tour-title {
+            font-size: 2rem;
+            color: var(--dark);
             margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
         }
 
-        .cta-content p {
-            font-size: 1.1rem;
+        .tour-description {
+            color: #666;
             margin-bottom: 30px;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            text-align: center;
         }
 
-        .btn {
+        .tour-highlights {
+            list-style: none;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .tour-highlights li {
+            color: #555;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .tour-highlights li i {
+            color: var(--primary);
+            margin-right: 10px;
+            width: 16px;
+        }
+
+        .tour-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+        }
+
+        .price-info {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .book-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
             display: inline-block;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 95, 45, 0.3);
+        }
+
+        /* Connect Section */
+        .connect-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .social-connect {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .social-text {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .social-icons-large {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .social-icon-large {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            border-radius: 50%;
+            color: var(--primary);
+            font-size: 28px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon-large:hover {
             background-color: var(--primary);
             color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 10px 0;
-        }
-        
-        .btn:hover {
-            background-color: transparent;
-            color: white;
-            transform: translateY(-3px);
+            transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid white;
-            margin-left: 15px;
-        }
-        
-        .btn-outline:hover {
-            background-color: white;
-            color: var(--primary);
         }
 
         /* Footer Styles */
@@ -703,40 +547,32 @@
                 z-index: 1000;
             }
             
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .social-icons-large {
+                gap: 20px;
             }
             
-            .about-content:nth-child(even) {
-                direction: ltr;
-            }
-            
-            .content-image {
-                order: -1;
+            .social-icon-large {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
             }
         }
         
         @media (max-width: 768px) {
-            .team-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-            
-            .stats-container {
-                grid-template-columns: 1fr 1fr;
-            }
-            
             .page-banner h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .page-banner p {
                 font-size: 1rem;
             }
             
-            .btn {
-                padding: 10px 20px;
-                font-size: 14px;
+            .tour-content {
+                padding: 30px 25px;
+            }
+            
+            .tour-highlights {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -745,8 +581,18 @@
                 font-size: 2rem;
             }
             
-            .stats-container {
-                grid-template-columns: 1fr;
+            .tour-title {
+                font-size: 1.8rem;
+            }
+            
+            .social-icons-large {
+                gap: 15px;
+            }
+            
+            .social-icon-large {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
             }
             
             .footer-container {
@@ -788,127 +634,61 @@
 
     <section class="page-banner">
         <div class="container">
-            <h1>About Carevo Skadar Lake</h1>
-            <p>Welcome to Lake Skadar – Experience the Magic of Nature with Us</p>
+            <h1>Kayak Adventure</h1>
+            <p>Experience the pristine waters of Lake Skadar at your own pace</p>
         </div>
     </section>
 
-    <section class="about-section">
+    <section class="kayak-section">
         <div class="container">
             <div class="section-title">
-                <h2>Our Story</h2>
-                <p>A family tradition of sharing Lake Skadar's beauty with visitors from around the world</p>
+                <h2>Skadar Lake Kayak Tour</h2>
+                <p>Paddle through crystal-clear waters and discover hidden corners of Montenegro's largest lake</p>
             </div>
             
-            <div class="about-content">
-                <div class="content-text">
-                    <h3>Our Family Heritage</h3>
-                    <p>For over 15 years, our family has been passionately running a business dedicated to lake tourism. As hosts from a lakeside village on the shores of Lake Skadar, we have lived alongside this magical lake for generations – we know every corner, every story, and every hidden beauty that we want to share with you.</p>
-                    <p>Our deep connection to this land gives us unique insights into its history, ecology, and culture that can only come from a lifetime of experience. What began as a small family operation has grown into the region's premier tour provider, while still maintaining our commitment to authentic, personalized experiences.</p>
-                </div>
-                <div class="content-image">
-                    <img src="../boat.jpg" alt="Our boat on Lake Skadar">
-                </div>
-            </div>
-
-            <div class="about-content">
-                <div class="content-text">
-                    <h3>Our Unique Experiences</h3>
-                    <p>We organize boat cruises and kayaking adventures, perfect for anyone wanting to discover the peaceful, authentic, and untouched side of Lake Skadar. Sailing on calm waters, you'll discover ancient island monasteries, hidden coves, rich birdlife, and breathtaking landscapes.</p>
-                    <p>Our experienced hosts will gladly share interesting stories and legends about the lake, as well as recommend the best spots for photography and relaxation. If you love adventure, kayaking is an ideal opportunity to explore narrow channels and quiet lagoons at your own pace, immersed in nature, away from crowds and noise.</p>
-                </div>
-                <div class="content-image">
-                    <img src="../pocetna.jpg" alt="Lake Skadar landscape">
-                </div>
-            </div>
-
-            <div class="about-content">
-                <div class="content-text">
-                    <h3>The Carevo Difference</h3>
-                    <p>What sets Carevo Skadar Lake apart is our deep local knowledge and genuine passion for this remarkable ecosystem. Our guides aren't just tour operators – they're locals who have grown up on and around the lake, with generations of knowledge about its hidden gems, wildlife, and history.</p>
-                    <p>We believe in small group experiences that allow for personal attention and flexibility. Whether you're interested in birdwatching, photography, fishing, history, or simply relaxing in nature, we tailor each tour to ensure it meets your interests and exceeds your expectations.</p>
-                </div>
-                <div class="content-image">
-                    <img src="../panorama.jpg" alt="Wildlife on Lake Skadar">
+            <div class="kayak-tour-container">
+                <div class="kayak-tour-card">
+                    <div class="tour-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../pocetna.jpg');">
+                        <div class="tour-duration">3-4 Hours</div>
+                        <div class="tour-difficulty">All Levels</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Lake Skadar Kayak Experience</h3>
+                        <p class="tour-description">Embark on an unforgettable kayaking adventure across the serene waters of Lake Skadar. Perfect for all skill levels, this guided tour combines stunning natural beauty with cultural heritage as you paddle to hidden coves and historic sites.</p>
+                        
+                        <ul class="tour-highlights">
+                            <li><i class="fa-solid fa-check"></i> Professional guide and safety briefing</li>
+                            <li><i class="fa-solid fa-check"></i> High-quality kayaks and equipment</li>
+                            <li><i class="fa-solid fa-check"></i> Visit to Grmožur fortress island</li>
+                            <li><i class="fa-solid fa-check"></i> Wildlife and bird watching</li>
+                            <li><i class="fa-solid fa-check"></i> Swimming breaks in pristine waters</li>
+                            <li><i class="fa-solid fa-check"></i> Photography opportunities</li>
+                            <li><i class="fa-solid fa-check"></i> Waterproof bags included</li>
+                            <li><i class="fa-solid fa-check"></i> Traditional snacks and water</li>
+                        </ul>
+                        
+                        <div class="tour-price">
+                            <span class="price-info">From €45/person</span>
+                            <a href="booknow.html" class="book-btn">Book Now</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features-section">
+    <section class="connect-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Why Choose Us?</h2>
-                <p>Discover what makes our Lake Skadar tours truly exceptional</p>
-            </div>
-            
-            <div class="features-container">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-medal"></i>
-                    </div>
-                    <h3 class="feature-title">15+ Years of Experience</h3>
-                    <p class="feature-text">Our family has been guiding tours on Lake Skadar for over 15 years, building a reputation for excellence.</p>
-                </div>
+            <div class="social-connect">
+                <h2 class="social-title">Connect With Us</h2>
+                <p class="social-text">Follow us on social media for the latest updates, beautiful photos of Lake Skadar, and special offers for our tours</p>
                 
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                    </div>
-                    <h3 class="feature-title">Local Expert Guides</h3>
-                    <p class="feature-text">Our guides are locals who truly know the lake and can share authentic stories and hidden spots.</p>
+                <div class="social-icons-large">
+                    <a href="tel:+38267601053" class="social-icon-large"><i class="fa fa-phone"></i></a>
+                    <a href="https://www.instagram.com/carevo_skadar_lake_cruise/" class="social-icon-large"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="mailto:carevocarevo17@gmail.com" class="social-icon-large"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://g.co/kgs/xnQtTcg" class="social-icon-large"><i class="fa-brands fa-google"></i></a>
                 </div>
-                
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <h3 class="feature-title">Warm Family Atmosphere</h3>
-                    <p class="feature-text">Experience genuine Montenegrin hospitality with our family-run tours and personalized service.</p>
-                </div>
-                
-                
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h3 class="feature-title">Safe and Comfortable Boats</h3>
-                    <p class="feature-text">Our well-maintained vessels ensure a safe and comfortable journey across Lake Skadar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-title">Years of Experience</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5000+</div>
-                    <div class="stat-title">Happy Visitors</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-title">Tour Options</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">4.9</div>
-                    <div class="stat-title">Average Rating</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Experience Lake Skadar?</h2>
-                <p>Let us guide you and show you why Lake Skadar is one of the most special places in Montenegro. Whether you're looking for a romantic cruise, a family excursion, or an active nature getaway – we're here to make your experience unforgettable.</p>
-                <a href="booknow.html" class="btn">Book Your Tour Now</a>
-                <a href="contact.html" class="btn btn-outline">Contact Us</a>
             </div>
         </div>
     </section>
