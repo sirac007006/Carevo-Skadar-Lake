@@ -180,7 +180,7 @@
         
         /* Page Banner */
         .page-banner {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../kayak.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../pocetna.jpg');
             background-size: cover;
             background-position: center;
             height: 40vh;
@@ -333,19 +333,63 @@
             width: 16px;
         }
 
-        .tour-price {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 1px solid #eee;
+        /* Updated Pricing Section */
+        .pricing-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
         }
 
-        .price-info {
-            font-size: 1.6rem;
+        .pricing-title {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 25px;
             font-weight: 600;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .price-option {
+            background: white;
+            padding: 20px 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .price-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+
+        .price-duration {
+            font-size: 1rem;
+            color: var(--dark);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .price-amount {
+            font-size: 1.4rem;
             color: var(--primary);
+            font-weight: 700;
+        }
+
+        .pricing-note {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
         }
 
         .book-btn {
@@ -359,7 +403,10 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
+            display: block;
+            text-align: center;
+            max-width: 200px;
+            margin: 0 auto;
         }
 
         .book-btn:hover {
@@ -556,6 +603,10 @@
                 height: 60px;
                 font-size: 24px;
             }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (max-width: 768px) {
@@ -573,6 +624,11 @@
             
             .tour-highlights {
                 grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
         }
         
@@ -649,7 +705,7 @@
             <div class="kayak-tour-container">
                 <div class="kayak-tour-card">
                     <div class="tour-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../kayak.jpg');">
-                        <div class="tour-duration">3-4 Hours</div>
+                        <div class="tour-duration">Flexible Duration</div>
                         <div class="tour-difficulty">All Levels</div>
                     </div>
                     <div class="tour-content">
@@ -667,8 +723,31 @@
                             <li><i class="fa-solid fa-check"></i> Traditional snacks and water</li>
                         </ul>
                         
-                        <div class="tour-price">
-                            <span class="price-info">From €45/person</span>
+                        <div class="pricing-section">
+                            <h3 class="pricing-title">Kayak Rental Prices</h3>
+                            <div class="pricing-grid">
+                                <div class="price-option">
+                                    <div class="price-duration">1 Hour</div>
+                                    <div class="price-amount">€8</div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-duration">2 Hours</div>
+                                    <div class="price-amount">€15</div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-duration">3 Hours</div>
+                                    <div class="price-amount">€20</div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-duration">4 Hours</div>
+                                    <div class="price-amount">€25</div>
+                                </div>
+                                <div class="price-option">
+                                    <div class="price-duration">Full Day</div>
+                                    <div class="price-amount">€30</div>
+                                </div>
+                            </div>
+                            <p class="pricing-note">Choose your perfect adventure duration - all equipment included!</p>
                             <a href="booknow.html" class="book-btn">Book Now</a>
                         </div>
                     </div>
@@ -783,6 +862,17 @@
                             behavior: 'smooth'
                         });
                     }
+                });
+            });
+
+            // Add hover effects for price options
+            document.querySelectorAll('.price-option').forEach(option => {
+                option.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.02)';
+                });
+                
+                option.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
                 });
             });
         });
