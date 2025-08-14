@@ -178,12 +178,11 @@
             top: 8px;
         }
         
-        /* Page Banner */
+        /* Image Slider Styles */
         .page-banner {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../pocetna.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 50vh;
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -192,17 +191,155 @@
             padding-top: 80px;
         }
         
-        .page-banner h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .slider-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
         }
         
-        .page-banner p {
-            font-size: 1.2rem;
+        .slider-track {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .slide {
+            width: 20%;
+            height: 100%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+            z-index: 1;
+        }
+        
+        .slide:nth-child(1) {
+            background-image: url('../slika1.jpg');
+        }
+        
+        .slide:nth-child(2) {
+            background-image: url('../slika2.jpg');
+        }
+        
+        .slide:nth-child(3) {
+            background-image: url('../slika3.jpg');
+        }
+        
+        .slide:nth-child(4) {
+            background-image: url('../slika4.jpg');
+        }
+        
+        .slide:nth-child(5) {
+            background-image: url('../slika5.jpg');
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 10;
             max-width: 800px;
             margin: 0 auto;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            padding: 0 20px;
+        }
+        
+        .banner-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            font-weight: 700;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .banner-content p {
+            font-size: 1.3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        /* Slider Navigation */
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+        
+        .nav-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        .nav-dot:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.1);
+        }
+        
+        .nav-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Slider Arrows */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            border-radius: 5px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .slider-arrow:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .slider-arrow.prev {
+            left: 30px;
+        }
+        
+        .slider-arrow.next {
+            right: 30px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         /* About Content Styles */
@@ -715,6 +852,10 @@
             .content-image {
                 order: -1;
             }
+            
+            .slider-arrow {
+                display: none;
+            }
         }
         
         @media (max-width: 768px) {
@@ -726,11 +867,11 @@
                 grid-template-columns: 1fr 1fr;
             }
             
-            .page-banner h1 {
+            .banner-content h1 {
                 font-size: 2.5rem;
             }
             
-            .page-banner p {
+            .banner-content p {
                 font-size: 1rem;
             }
             
@@ -751,6 +892,19 @@
             
             .footer-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .banner-content h1 {
+                font-size: 2rem;
+            }
+            
+            .slider-nav {
+                bottom: 20px;
+            }
+            
+            .nav-dot {
+                width: 12px;
+                height: 12px;
             }
         }
     </style>
@@ -787,9 +941,34 @@
     </header>
 
     <section class="page-banner">
-        <div class="container">
+        <div class="slider-container">
+            <div class="slider-track" id="sliderTrack">
+                <div class="slide"></div>
+                <div class="slide"></div>
+                <div class="slide"></div>
+                <div class="slide"></div>
+                <div class="slide"></div>
+            </div>
+        </div>
+        
+        <button class="slider-arrow prev" id="prevBtn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-arrow next" id="nextBtn">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="banner-content">
             <h1>O Carevo Skadar Lake</h1>
             <p>Dobrodošli na Skadarsko jezero – doživite čaroliju prirode sa nama</p>
+        </div>
+        
+        <div class="slider-nav" id="sliderNav">
+            <div class="nav-dot active" data-slide="0"></div>
+            <div class="nav-dot" data-slide="1"></div>
+            <div class="nav-dot" data-slide="2"></div>
+            <div class="nav-dot" data-slide="3"></div>
+            <div class="nav-dot" data-slide="4"></div>
         </div>
     </section>
 
@@ -919,9 +1098,9 @@
                     <h3>Carevo Skadar Lake</h3>
                     <p>Najbolje ture brodom po Skadarskom jezeru. Doživite jedinstvenu avanturu u srcu netaknute prirode sa našim stručnim vodičima.</p>
                     <div class="social-icons">
-                        <a href="tel:+38267601053" class="social-icon"><i class="fa fa-phone"></i></a>
+                        <a href="tel:+38268143899" class="social-icon"><i class="fa fa-phone"></i></a>
                         <a href="https://www.instagram.com/carevo_skadar_lake_cruise/" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="mailto:carevocarevo17@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="mailto:balsalekic@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
                         <a href="" class="social-icon"><img src="../gyg.jpg" style="max-width: 50%;"></a>
                         <a href="https://g.co/kgs/xnQtTcg" class="social-icon"><i class="fa-brands fa-google"></i></a>
                     </div>
@@ -948,7 +1127,7 @@
                 <div class="footer-column">
                     <h3>Radno vrijeme</h3>
                     <ul>
-                        <li>Ponedeljak - Nedjelja: 8:00 - 22:00</li>
+                        <li>Ponedeljak - Nedjelja: 6:00 - 22:00</li>
                     </ul>
                 </div>
             </div>
@@ -1003,6 +1182,91 @@
                         });
                     }
                 });
+            });
+
+            // Image Slider Functionality
+            const sliderTrack = document.getElementById('sliderTrack');
+            const navDots = document.querySelectorAll('.nav-dot');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            let currentSlide = 0;
+            const totalSlides = 5;
+            let autoSlideInterval;
+
+            function updateSlider() {
+                const translateX = -currentSlide * 20; // 20% per slide
+                sliderTrack.style.transform = `translateX(${translateX}%)`;
+                
+                // Update navigation dots
+                navDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            }
+
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateSlider();
+            }
+
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
+            }
+
+            function stopAutoSlide() {
+                clearInterval(autoSlideInterval);
+            }
+
+            // Event listeners for navigation
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                stopAutoSlide();
+                setTimeout(startAutoSlide, 8000); // Restart auto-slide after 8 seconds
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                stopAutoSlide();
+                setTimeout(startAutoSlide, 8000);
+            });
+
+            navDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                    stopAutoSlide();
+                    setTimeout(startAutoSlide, 8000);
+                });
+            });
+
+            // Pause auto-slide on hover
+            const bannerSection = document.querySelector('.page-banner');
+            bannerSection.addEventListener('mouseenter', stopAutoSlide);
+            bannerSection.addEventListener('mouseleave', startAutoSlide);
+
+            // Start auto-slide
+            startAutoSlide();
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                    stopAutoSlide();
+                    setTimeout(startAutoSlide, 8000);
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                    stopAutoSlide();
+                    setTimeout(startAutoSlide, 8000);
+                }
             });
         });
     </script>
